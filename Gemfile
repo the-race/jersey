@@ -15,8 +15,12 @@ gem 'mongoid', "2.4.12"
 gem 'bson_ext', :require => "mongo"
 
 # Test requirements
-gem 'rspec', :group => "test"
-gem 'rack-test', :require => "rack/test", :group => "test"
+group :test do
+  gem 'rspec'
+  gem 'rack-test', :require => "rack/test"
+  gem 'capybara'
+  gem 'launchy'
+end
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.7'

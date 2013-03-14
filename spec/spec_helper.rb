@@ -1,6 +1,10 @@
 PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
 require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 
+require 'capybara/rspec'
+Capybara.app = YellowJersey
+Capybara.save_and_open_page_path = Dir.pwd
+
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
 end
