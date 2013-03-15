@@ -5,6 +5,20 @@
 #   name = shell.ask("What's your name?")
 #   shell.say name
 #
+
+if PADRINO_ENV == 'test'
+
+account = Account.create(
+  :email => 'test@test.com',
+  :name => 'testy',
+  :surname => 'tester',
+  :password => 'password',
+  :password_confirmation => 'password',
+  :role => "athlete")
+
+  shell.say 'Created test user: test@test.com, password: password'
+else
+
 email     = shell.ask "Which email do you want use for logging into admin?"
 password  = shell.ask "Tell me the password to use:"
 
@@ -26,3 +40,5 @@ else
 end
 
 shell.say ""
+
+end

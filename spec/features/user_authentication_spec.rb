@@ -9,9 +9,9 @@ feature 'User authentication' do
 
   scenario 'successful login' do
     visit '/sessions/new'
-    
-    fill_in 'email', :with => "anthony.griff@gmail.com"
-    fill_in 'password', :with => "secret"
+
+    fill_in 'email', :with => "test@test.com"
+    fill_in 'password', :with => "password"
 
     click_button 'Sign in'
 
