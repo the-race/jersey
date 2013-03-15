@@ -2,8 +2,17 @@ class YellowJersey < Padrino::Application
   register Padrino::Rendering
   register Padrino::Mailer
   register Padrino::Helpers
+  register Padrino::Admin::AccessControl
 
   enable :sessions
+
+  enable :authentication
+  enable :store_location
+  set    :login_page, "/sessions/new"
+
+  access_control.roles_for :any do |role|
+    role.protect "/home"
+  end
 
   ##
   # Caching support
