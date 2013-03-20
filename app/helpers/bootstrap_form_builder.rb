@@ -8,15 +8,46 @@ class Padrino::Helpers::FormBuilder::BootstrapFormBuilder < Padrino::Helpers::Fo
   # We also have access to self.field_types => [:text_field, :text_area, ...]
   # In addition, we have access to all the existing field tag
   # helpers (text_field, hidden_field, file_field, ...)
+  def initialize(template, object, options={})
+    super(template, object, options)
 
-  def control_group_for(field, &block)
-    field_id = field_id(field)
-    group    = template.tag(:div, :class => 'control-group')
-    group << template.label_tag(field_id, :caption => "#{field_human_name(field)}: ", :class => 'control-label')
-    group << template.tag(:div, :class => 'controls')
-    group << capture_html(self, &block)
-    group << template.error_message_on(field_id, :class => 'help-inline')
-    group << '</div></div>'
-    group
+    [:email_field, :text_field, :password_field].each do |meth|
+      define_singleton_method(meth) do |field, opts={}|
+        html = super(field, opts)
+        wrap_field(field, html)
+      end
+    end
   end
+
+  #def text_field(field, options={})
+    #html = super(field, options)
+    #wrap_field(field, html)
+  #end
+
+  #def email_field(field, options={})
+    #html = super(field, options)
+    #wrap_field(field, html)
+  #end
+
+  def wrap_field(field, html)
+    output = control_group_begin(field)
+    output << html
+    output << control_group_end(field)
+    output
+  end
+
+  def control_group_begin(field)
+    field_id = field_id(field)
+    output   = template.tag(:div, :class => 'control-group')
+    output << template.label_tag(field_id, :caption => "#{field_human_name(field)}: ", :class => 'control-label')
+    output << template.tag(:div, :class => 'controls')
+    output
+  end
+
+  def control_group_end(field)
+    output = template.error_message_on(field_id, :class => 'help-inline')
+    output << '</div></div>'
+    output
+  end
+
 end

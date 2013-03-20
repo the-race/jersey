@@ -14,6 +14,12 @@ gem 'erubis', "~> 2.7.0"
 gem 'mongoid', "2.4.12"
 gem 'bson_ext', :require => "mongo"
 
+# Development requirements
+group :development do
+  gem 'interactive_editor'
+  gem 'awesome_print'
+end
+
 # Test requirements
 group :test do
   gem 'rspec'

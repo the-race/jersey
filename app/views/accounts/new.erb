@@ -6,49 +6,11 @@
 
   <%= f.error_messages %>
 
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <%= f.error_message_on :name %>
-    <div class="controls">
-      <%= f.text_field :name, :class => :text_field %>
-    </div>
-  </div>
-
-  <% f.control_group_for :email do %>
-    <%= f.email_field :email, :class => :text_field %>
-  <% end %>
-
-  <div class="control-group <%= error_class_for(f, :email) %>">
-    <%= f.label :email, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.email_field :email, :class => :text_field %>
-      <%= f.error_message_on :email, :class => 'help-inline' %>
-    </div>
-  </div>
-
-  <div class="control-group <%= error_class_for(f, :password) %>">
-    <%= f.label :password, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.password_field :password, :class => :text_field %>
-      <%= f.error_message_on :password, :class => 'help-inline' %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :password_confirmation, :class => 'control-label' %>
-    <%= f.error_message_on :password_confirmation %>
-    <div class="controls">
-      <%= f.password_field :password_confirmation, :class => :text_field %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :athlete_number, :class => 'control-label' %>
-    <%= f.error_message_on :athlete_number %>
-    <div class="controls">
-      <%= f.text_field :athlete_number, :class => :text_field %>
-    </div>
-  </div>
+  <%= f.text_field :name, :class => :text_field %>
+  <%= f.email_field :email, :class => :text_field %>
+  <%= f.password_field :password, :class => :text_field %>
+  <%= f.password_field :password_confirmation, :class => :text_field %>
+  <%= f.text_field :athlete_number, :class => :text_field %>
 
   <div class="control-group">
     <div class="controls">
