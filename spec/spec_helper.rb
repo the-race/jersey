@@ -7,6 +7,21 @@ Capybara.save_and_open_page_path = Dir.pwd
 
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
+
+  # Cleaner
+  DatabaseCleaner[:mongoid].strategy = :truncation
+  conf.before(:each) do
+    DatabaseCleaner[:mongoid].clean
+
+    account = Account.create(
+      :email => 'test@test.com',
+      :name => 'testy',
+      :surname => 'tester',
+      :password => 'password',
+      :password_confirmation => 'password',
+      :role => "athlete")
+  end
+  conf.after(:each) { DatabaseCleaner[:mongoid].clean }
 end
 
 def app

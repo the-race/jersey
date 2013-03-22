@@ -9,6 +9,7 @@ YellowJersey.controllers :accounts do
     @account.role = :athlete
     if @account.save
       flash[:notice] = 'Account was successfully created.'
+      set_current_account(@account)
       redirect url(:home, :index)
     else
       flash[:error] = 'Please fix the problems highlighted below and try again.'

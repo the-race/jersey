@@ -26,6 +26,7 @@ group :test do
   gem 'rack-test', :require => "rack/test"
   gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
 # Padrino Stable Gem
