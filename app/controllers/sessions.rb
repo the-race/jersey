@@ -1,18 +1,16 @@
 YellowJersey.controllers :sessions do
-
   get :new do
-    render url(:sessions, :new)
+    render 'sessions/new'
   end
 
   post :create do
     if account = Account.authenticate(params[:email], params[:password])
       set_current_account(account)
-      redirect url(:home, :index)
+      redirect 'home'
     else
       params[:email], params[:password] = h(params[:email]), h(params[:password])
-      flash[:error] = "Wrong email or password."
-      redirect url(:sessions, :new)
+      flash[:warning] = 'Login or password wrong.'
+      redirect 'sessions/new'
     end
   end
-
 end
