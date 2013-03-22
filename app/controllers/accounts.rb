@@ -6,6 +6,7 @@ YellowJersey.controllers :accounts do
 
   post :create do
     @account = Account.new(params[:account])
+    @account.role = :athlete
     if @account.save
       flash[:notice] = 'Account was successfully created.'
       redirect url(:home, :index)

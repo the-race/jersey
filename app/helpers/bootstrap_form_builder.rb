@@ -38,16 +38,26 @@ class Padrino::Helpers::FormBuilder::BootstrapFormBuilder < Padrino::Helpers::Fo
 
   def control_group_begin(field)
     field_id = field_id(field)
-    output   = template.tag(:div, :class => 'control-group')
+    output   = template.tag(:div, :class => "control-group #{has_error(field)}")
     output << template.label_tag(field_id, :caption => "#{field_human_name(field)}: ", :class => 'control-label')
     output << template.tag(:div, :class => 'controls')
     output
   end
 
   def control_group_end(field)
-    output = template.error_message_on(field_id, :class => 'help-inline')
+    output = template.error_message_on(object, field, :class => 'help-inline')
     output << '</div></div>'
     output
+  end
+
+  def has_error(field)
+    message = template.error_message_on(object, field, {})
+
+    if message != ''
+      'error'
+    else
+      ''
+    end
   end
 
 end
