@@ -13,6 +13,7 @@
           <th class="first"><%= mat(:account, :id) %></th>
           <th><%= mat(:account, :name) %></th>
           <th><%= mat(:account, :surname) %></th>
+          <th><%= mat(:account, :athlete_number) %></th>
           <th><%= mat(:account, :email) %></th>
           <th class="last">&nbsp;</th>
         </tr>
@@ -21,6 +22,7 @@
           <td class="first"><%= account.id %></td>
           <td><%= account.name %></td>
           <td><%= account.surname %></td>
+          <td><%= account.athlete_number %></td>
           <td><%= account.email %></td>
           <td class="last">
             <%= button_to pat(:edit), url(:accounts, :edit, :id => account.id), :method => :get, :class => :button_to %> |

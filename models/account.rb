@@ -7,10 +7,11 @@ class Account
   field :surname,          :type => String
   field :email,            :type => String
   field :crypted_password, :type => String
+  field :athlete_number,   :type => String
   field :role,             :type => String
 
   # Validations
-  validates_presence_of     :email, :role
+  validates_presence_of     :name, :email, :role
   validates_presence_of     :password,                   :if => :password_required
   validates_presence_of     :password_confirmation,      :if => :password_required
   validates_length_of       :password, :within => 4..40, :if => :password_required
