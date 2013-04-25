@@ -1,31 +1,33 @@
 require 'spec_helper'
 
 feature 'User authentication' do
-  scenario 'guest user trying to access home page' do
-    visit '/home'
+  scenario 'guest user trying to access dashboard page' do
+    visit '/dashboard'
 
     expect(page).to have_content('Login')
   end
 
   scenario 'successful login' do
-    visit '/sessions/new'
+    user = FactoryGirl.create(:user)
+    visit '/users/sign_in'
 
-    fill_in 'email', :with => "test@test.com"
-    fill_in 'password', :with => "password"
+    fill_in 'user_email', :with => user.email
+    fill_in 'user_password', :with => user.password
 
     click_button 'Sign in'
 
-    expect(page).to have_content('Home')
+    expect(page).to have_content('Dashboard')
   end
 
   scenario 'failed login' do
-    visit '/sessions/new'
+    user = FactoryGirl.create(:user)
+    visit '/users/sign_in'
 
-    fill_in 'email', :with => "test@test.com"
-    fill_in 'password', :with => "wrong_password"
+    fill_in 'user_email', :with => user.email
+    fill_in 'user_password', :with => 'wrong_password'
 
     click_button 'Sign in'
 
-    expect(page).to have_content('Login or password wrong')
+    expect(page).to have_content('Invalid email or password')
   end
 end

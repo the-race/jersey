@@ -2,17 +2,19 @@ require 'spec_helper'
 
 feature 'sign up' do
   scenario 'new user' do
-    visit '/accounts/new'
+    visit '/users/sign_up'
 
-    fill_in 'account_name', :with => 'Justin'
-    fill_in 'account_email', :with => 'jramel@test.com'
-    fill_in 'account_password', :with => 'secret'
-    fill_in 'account_password_confirmation', :with => 'secret'
-    fill_in 'account_athlete_number', :with => 'jramel'
+    fill_in 'user_name', :with => 'Justin'
+    fill_in 'user_email', :with => 'jramel@test.com'
+    fill_in 'user_password', :with => 'secretsh'
+    fill_in 'user_password_confirmation', :with => 'secretsh'
+    fill_in 'user_athlete_number', :with => 'jramel'
 
-    click_button 'Sign me up'
+    click_button 'Sign up'
 
-    expect(page).to have_content('Home')
-    expect(page).to have_content('Account was successfully created')
+    save_and_open_page
+
+    expect(page).to have_content('Athletes')
+    expect(page).to have_content('Welcome! You have signed up successfully.')
   end
 end

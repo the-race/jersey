@@ -2,6 +2,8 @@
 
 It's a marathon, not a sprint.
 
+Race you're friends, enemies, pros and celebrities for the Jersey!
+
 ##Setup
 
 ```bash
@@ -11,21 +13,12 @@ cd jersey
 
 bundle install
 
-padrino rake seed
 ```
 
-You will now be asked for an email address and password to allow you to login to admin pages.
-
 ```
-padrino start
+rails server
 ```
 
-Now open http://0.0.0.0:3000/admin in your browser.
+Now open http://0.0.0.0:3000
 
-You should be able to login with the email address and password you specified earlier.
-
-
-
-
-
-
+You should now see the guest home page.

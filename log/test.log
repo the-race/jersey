@@ -1,0 +1,554 @@
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-04-17 22:38:51 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (231.0ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 252ms (Views: 251.5ms)
+Started POST "/users" for 127.0.0.1 at 2013-04-17 22:38:51 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"Justin", "email"=>"jramel@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "athlete_number"=>"jramel"}, "commit"=>"Sign up"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8712ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"jramel@test.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.8869ms)
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 9.5ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (2.5411ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-04-17 22:39:01 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (220.4ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 241ms (Views: 240.1ms)
+Started POST "/users" for 127.0.0.1 at 2013-04-17 22:39:01 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"Justin", "email"=>"jramel@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "athlete_number"=>"jramel"}, "commit"=>"Sign up"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (10.4148ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"jramel@test.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.3810ms)
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 9.7ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4449ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-04-17 22:39:09 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (210.0ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 229ms (Views: 228.4ms)
+Started POST "/users" for 127.0.0.1 at 2013-04-17 22:39:10 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"Justin", "email"=>"jramel@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "athlete_number"=>"jramel"}, "commit"=>"Sign up"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.9091ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"jramel@test.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.3159ms)
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 9.7ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4411ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-04-17 22:39:44 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (219.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 239ms (Views: 238.0ms)
+Started POST "/users" for 127.0.0.1 at 2013-04-17 22:39:45 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"Justin", "email"=>"jramel@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "athlete_number"=>"jramel"}, "commit"=>"Sign up"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (5.3442ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"jramel@test.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (1.0750ms)
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 9.9ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (8.6038ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-04-17 22:40:34 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (209.7ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 229ms (Views: 228.2ms)
+Started POST "/users" for 127.0.0.1 at 2013-04-17 22:40:35 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"Justin", "email"=>"jramel@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "athlete_number"=>"jramel"}, "commit"=>"Sign up"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (5.7392ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"jramel@test.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (1.2250ms)
+  MOPED: 127.0.0.1:27017 INSERT       database=jersey_test collection=users documents=[{"_id"=>"516f16d3245ff0845a000001", "email"=>"jramel@test.com", "encrypted_password"=>"$2a$04$D0DB99IsxEKTduz9H8R0K.IeRpVcEfnsPiNQ.U71qj4IAjNkbYOau", "sign_in_count"=>0, "athlete_number"=>"jramel", "name"=>"Justin", "updated_at"=>2013-04-17 21:40:35 UTC, "created_at"=>2013-04-17 21:40:35 UTC}] flags=[] (0.2241ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=jersey_test collection=users selector={"_id"=>"516f16d3245ff0845a000001"} update={"$set"=>{"last_sign_in_at"=>2013-04-17 21:40:35 UTC, "current_sign_in_at"=>2013-04-17 21:40:35 UTC, "last_sign_in_ip"=>"127.0.0.1", "current_sign_in_ip"=>"127.0.0.1", "sign_in_count"=>1, "updated_at"=>2013-04-17 21:40:35 UTC}} flags=[] (0.2310ms)
+Redirected to http://www.example.com/
+Completed 302 Found in 33ms
+Started GET "/" for 127.0.0.1 at 2013-04-17 22:40:35 +0100
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"_id"=>"516f16d3245ff0845a000001"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (647.6488ms)
+Processing by HomeController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.6251ms)
+  Rendered home/index.html.erb within layouts/application (3.4ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=jersey_test command={:count=>"roles", :query=>{"$and"=>[{"_id"=>{"$in"=>[]}}], "$or"=>[{"name"=>"admin", "resource_type"=>nil, "resource_id"=>nil}]}} (0.9003ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 12ms (Views: 11.0ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (95.6190ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.4890ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-04-17 22:41:19 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (217.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 237ms (Views: 236.2ms)
+Started POST "/users" for 127.0.0.1 at 2013-04-17 22:41:19 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"Justin", "email"=>"jramel@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "athlete_number"=>"jramel"}, "commit"=>"Sign up"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.0350ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"jramel@test.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.3431ms)
+  MOPED: 127.0.0.1:27017 INSERT       database=jersey_test collection=users documents=[{"_id"=>"516f16ff245ff0bbeb000001", "email"=>"jramel@test.com", "encrypted_password"=>"$2a$04$FZywVGnc4IQAJJ5cxGSp/uRPmdjsJdPWvZCAre.iiNPWfBdepdBbi", "sign_in_count"=>0, "athlete_number"=>"jramel", "name"=>"Justin", "updated_at"=>2013-04-17 21:41:19 UTC, "created_at"=>2013-04-17 21:41:19 UTC}] flags=[] (0.2341ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=jersey_test collection=users selector={"_id"=>"516f16ff245ff0bbeb000001"} update={"$set"=>{"last_sign_in_at"=>2013-04-17 21:41:19 UTC, "current_sign_in_at"=>2013-04-17 21:41:19 UTC, "last_sign_in_ip"=>"127.0.0.1", "current_sign_in_ip"=>"127.0.0.1", "sign_in_count"=>1, "updated_at"=>2013-04-17 21:41:19 UTC}} flags=[] (1.2951ms)
+Redirected to http://www.example.com/
+Completed 302 Found in 26ms
+Started GET "/" for 127.0.0.1 at 2013-04-17 22:41:19 +0100
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"_id"=>"516f16ff245ff0bbeb000001"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.4430ms)
+Processing by HomeController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.3772ms)
+  Rendered home/index.html.erb within layouts/application (1.8ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=jersey_test command={:count=>"roles", :query=>{"$and"=>[{"_id"=>{"$in"=>[]}}], "$or"=>[{"name"=>"admin", "resource_type"=>nil, "resource_id"=>nil}]}} (0.8559ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 7.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (4.9779ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.1850ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-04-17 22:42:23 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (210.3ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 230ms (Views: 229.1ms)
+Started POST "/users" for 127.0.0.1 at 2013-04-17 22:42:24 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"Justin", "email"=>"jramel@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "athlete_number"=>"jramel"}, "commit"=>"Sign up"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8781ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"jramel@test.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.3500ms)
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 10.1ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.7298ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.1433ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-04-17 22:42:50 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (213.8ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 234ms (Views: 232.8ms)
+Started POST "/users" for 127.0.0.1 at 2013-04-17 22:42:50 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"Justin", "email"=>"jramel@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "athlete_number"=>"jramel"}, "commit"=>"Sign up"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (5.3923ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"jramel@test.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.3068ms)
+  MOPED: 127.0.0.1:27017 INSERT       database=jersey_test collection=users documents=[{"_id"=>"516f175a245ff09628000001", "email"=>"jramel@test.com", "encrypted_password"=>"$2a$04$UM9emLAJaabWIRt0wj0zQeya.1aQt03/59U.21XBMu.Tgsw0dM3tu", "sign_in_count"=>0, "athlete_number"=>"jramel", "name"=>"Justin", "updated_at"=>2013-04-17 21:42:50 UTC, "created_at"=>2013-04-17 21:42:50 UTC}] flags=[] (0.2477ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=jersey_test collection=users selector={"_id"=>"516f175a245ff09628000001"} update={"$set"=>{"last_sign_in_at"=>2013-04-17 21:42:50 UTC, "current_sign_in_at"=>2013-04-17 21:42:50 UTC, "last_sign_in_ip"=>"127.0.0.1", "current_sign_in_ip"=>"127.0.0.1", "sign_in_count"=>1, "updated_at"=>2013-04-17 21:42:50 UTC}} flags=[] (0.4401ms)
+Redirected to http://www.example.com/
+Completed 302 Found in 32ms
+Started GET "/" for 127.0.0.1 at 2013-04-17 22:42:50 +0100
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"_id"=>"516f175a245ff09628000001"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.8912ms)
+Processing by HomeController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.3982ms)
+  Rendered home/index.html.erb within layouts/application (1.8ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=jersey_test command={:count=>"roles", :query=>{"$and"=>[{"_id"=>{"$in"=>[]}}], "$or"=>[{"name"=>"admin", "resource_type"=>nil, "resource_id"=>nil}]}} (0.8149ms)
+  Rendered layouts/_navigation.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 7.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (1.2329ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.2091ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:06:01 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (178.8ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 236ms (Views: 234.7ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (5.7349ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.3910ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.2160ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:06:01 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 9ms (Views: 7.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4880ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0708ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:06:01 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.3440ms)
+  Rendered dashboard/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 47ms (Views: 45.8ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.5341ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0670ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:06:54 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (23.4811ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.3881ms)
+  Rendered dashboard/show.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_navigation.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 126ms (Views: 99.6ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.6940ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.1259ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:06:54 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (258.1ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 264ms (Views: 263.2ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:06:55 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"email"=>"test@test.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.5281ms)
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 11ms (Views: 8.2ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.5798ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.1240ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:06:55 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 9ms (Views: 8.3ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:06:55 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"email"=>"test@test.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.5410ms)
+Completed 401 Unauthorized in 2ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 9ms (Views: 6.8ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4632ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0660ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:12:06 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (169.6ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 226ms (Views: 225.4ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:12:06 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (40.6079ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"email"=>"example@example.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.3250ms)
+Completed 401 Unauthorized in 45ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (13.1ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 18ms (Views: 15.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4992ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0639ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:12:06 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.3481ms)
+  Rendered dashboard/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 4.6ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4649ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0651ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:12:07 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 7.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:12:07 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"email"=>"example@example.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.4122ms)
+Completed 401 Unauthorized in 1ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 9ms (Views: 6.8ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4468ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0668ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.9501ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4239ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.2601ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.5770ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.1571ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:18:18 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.4501ms)
+  Rendered dashboard/show.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 65ms (Views: 63.6ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.5481ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0751ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:22:02 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (5.4452ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.2711ms)
+  Rendered dashboard/show.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 77ms (Views: 68.7ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4830ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0639ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.2980ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0567ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.2933ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0539ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:23:03 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (5.6548ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.2670ms)
+  Rendered dashboard/show.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 77ms (Views: 68.7ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.5000ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0639ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.3021ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0541ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.2999ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0541ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:24:27 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (5.5292ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.2761ms)
+  Rendered dashboard/show.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 79ms (Views: 71.1ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4981ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0718ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.3030ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0582ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.2930ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0572ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:25:30 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (2.3322ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.3731ms)
+  Rendered dashboard/show.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 74ms (Views: 69.0ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4852ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0629ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.2949ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0601ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.2880ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0570ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:26:04 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.0061ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.2668ms)
+  Rendered dashboard/show.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 77ms (Views: 73.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4973ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0651ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.3021ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0532ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.2923ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0582ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.9563ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"example@example.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.3550ms)
+  MOPED: 127.0.0.1:27017 INSERT       database=jersey_test collection=users documents=[{"_id"=>"516f2281245ff0f69a000001", "email"=>"example@example.com", "encrypted_password"=>"$2a$04$lUuFOhlW6glRPywo.l6SaObw26JIyD6VinkyBy1RF.oGuSuyny0dW", "sign_in_count"=>0, "athlete_number"=>"", "name"=>"Test User", "updated_at"=>2013-04-17 22:30:25 UTC, "created_at"=>2013-04-17 22:30:25 UTC}] flags=[] (0.2770ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:30:25 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (170.2ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 228ms (Views: 226.9ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:30:25 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"email"=>"example@example.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.5970ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=jersey_test collection=users selector={"_id"=>"516f2281245ff0f69a000001"} update={"$set"=>{"last_sign_in_at"=>2013-04-17 22:30:25 UTC, "current_sign_in_at"=>2013-04-17 22:30:25 UTC, "last_sign_in_ip"=>"127.0.0.1", "current_sign_in_ip"=>"127.0.0.1", "sign_in_count"=>1, "updated_at"=>2013-04-17 22:30:25 UTC}} flags=[] (0.1419ms)
+Redirected to http://www.example.com/
+Completed 302 Found in 17ms
+Started GET "/" for 127.0.0.1 at 2013-04-17 23:30:25 +0100
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"_id"=>"516f2281245ff0f69a000001"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.4511ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.3459ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0648ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:30:25 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.3462ms)
+  Rendered dashboard/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 4.6ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4909ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0639ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"example@example.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.2859ms)
+  MOPED: 127.0.0.1:27017 INSERT       database=jersey_test collection=users documents=[{"_id"=>"516f2281245ff0f69a000002", "email"=>"example@example.com", "encrypted_password"=>"$2a$04$A9Wpgyno6n6A3qCzxP5TguP7gAINHXXqUSjKCrXcn2.nFA7dl7Jam", "sign_in_count"=>0, "athlete_number"=>"", "name"=>"Test User", "updated_at"=>2013-04-17 22:30:25 UTC, "created_at"=>2013-04-17 22:30:25 UTC}] flags=[] (0.1142ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:30:25 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 7.2ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:30:25 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"email"=>"example@example.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.5970ms)
+Completed 401 Unauthorized in 3ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 6.6ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.5188ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0699ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:31:26 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.7822ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.2840ms)
+  Rendered dashboard/show.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 88ms (Views: 83.9ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.5028ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0701ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"example@example.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.3619ms)
+  MOPED: 127.0.0.1:27017 INSERT       database=jersey_test collection=users documents=[{"_id"=>"516f22bf245ff0f360000001", "email"=>"example@example.com", "encrypted_password"=>"$2a$04$MIfFiYI9l2Gg2.X567oRGeXoiyykSMgA8D/Bv1uJdBcttohwBj2d2", "sign_in_count"=>0, "athlete_number"=>"", "name"=>"Test User", "updated_at"=>2013-04-17 22:31:27 UTC, "created_at"=>2013-04-17 22:31:27 UTC}] flags=[] (0.1333ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:31:27 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (206.3ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 212ms (Views: 211.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:31:27 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"email"=>"example@example.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.5782ms)
+Completed 401 Unauthorized in 5ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 9ms (Views: 6.9ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4358ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0689ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"example@example.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.3428ms)
+  MOPED: 127.0.0.1:27017 INSERT       database=jersey_test collection=users documents=[{"_id"=>"516f22bf245ff0f360000002", "email"=>"example@example.com", "encrypted_password"=>"$2a$04$UV1eUgMUumxO19PHfs8DKODaaxoFtV3kc.fYVYRD0rLP1D/negavO", "sign_in_count"=>0, "athlete_number"=>"", "name"=>"Test User", "updated_at"=>2013-04-17 22:31:27 UTC, "created_at"=>2013-04-17 22:31:27 UTC}] flags=[] (0.1190ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:31:27 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 6.9ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:31:27 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"email"=>"example@example.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.5960ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=jersey_test collection=users selector={"_id"=>"516f22bf245ff0f360000002"} update={"$set"=>{"last_sign_in_at"=>2013-04-17 22:31:27 UTC, "current_sign_in_at"=>2013-04-17 22:31:27 UTC, "last_sign_in_ip"=>"127.0.0.1", "current_sign_in_ip"=>"127.0.0.1", "sign_in_count"=>1, "updated_at"=>2013-04-17 22:31:27 UTC}} flags=[] (0.1411ms)
+Redirected to http://www.example.com/
+Completed 302 Found in 15ms
+Started GET "/" for 127.0.0.1 at 2013-04-17 23:31:27 +0100
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"_id"=>"516f22bf245ff0f360000002"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.4401ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.3479ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0632ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (6.0129ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"example@example.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.3178ms)
+  MOPED: 127.0.0.1:27017 INSERT       database=jersey_test collection=users documents=[{"_id"=>"516f23d8245ff077b7000001", "email"=>"example@example.com", "encrypted_password"=>"$2a$04$1HETZ5BD0m3KY.yjM9eVAeWn89xQYJROt0y6om624MyLA0474jCSO", "sign_in_count"=>0, "athlete_number"=>"", "name"=>"Test User", "updated_at"=>2013-04-17 22:36:08 UTC, "created_at"=>2013-04-17 22:36:08 UTC}] flags=[] (0.3579ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:36:08 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (175.3ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 233ms (Views: 232.4ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:36:08 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"email"=>"example@example.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.6032ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=jersey_test collection=users selector={"_id"=>"516f23d8245ff077b7000001"} update={"$set"=>{"last_sign_in_at"=>2013-04-17 22:36:08 UTC, "current_sign_in_at"=>2013-04-17 22:36:08 UTC, "last_sign_in_ip"=>"127.0.0.1", "current_sign_in_ip"=>"127.0.0.1", "sign_in_count"=>1, "updated_at"=>2013-04-17 22:36:08 UTC}} flags=[] (0.1543ms)
+Redirected to http://www.example.com/
+Completed 302 Found in 17ms
+Started GET "/" for 127.0.0.1 at 2013-04-17 23:36:08 +0100
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"_id"=>"516f23d8245ff077b7000001"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.4680ms)
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.3850ms)
+  Rendered dashboard/show.html.erb within layouts/application (0.3ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=jersey_test command={:count=>"roles", :query=>{"$and"=>[{"_id"=>{"$in"=>[]}}], "$or"=>[{"name"=>"admin", "resource_type"=>nil, "resource_id"=>nil}]}} (1.0979ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 6.6ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.7291ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0761ms)
+Started GET "/dashboard" for 127.0.0.1 at 2013-04-17 23:36:08 +0100
+Processing by DashboardController#show as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.7432ms)
+  Rendered dashboard/show.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 2.8ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4890ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.1171ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"email"=>"example@example.com"} flags=[] limit=1 skip=0 batch_size=nil fields={:_id=>1} (0.3929ms)
+  MOPED: 127.0.0.1:27017 INSERT       database=jersey_test collection=users documents=[{"_id"=>"516f23d8245ff077b7000002", "email"=>"example@example.com", "encrypted_password"=>"$2a$04$GAxzJksjvXKy7Z8FKOoe2uVy3saxhrnY9k47HanPwbcgz.cYnzcY6", "sign_in_count"=>0, "athlete_number"=>"", "name"=>"Test User", "updated_at"=>2013-04-17 22:36:08 UTC, "created_at"=>2013-04-17 22:36:08 UTC}] flags=[] (0.1180ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:36:08 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (64.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 67ms (Views: 67.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-04-17 23:36:08 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=users selector={"$query"=>{"email"=>"example@example.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil (0.6752ms)
+Completed 401 Unauthorized in 3ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 9ms (Views: 6.7ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=jersey_test collection=system.namespaces selector={:name=>{"$not"=>/system|\$/}} flags=[] limit=0 skip=0 batch_size=nil fields=nil (0.4258ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=jersey_test collection=users selector={} flags=[] (0.0658ms)

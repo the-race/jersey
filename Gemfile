@@ -1,41 +1,33 @@
-source "https://rubygems.org"
-
-# Server requirements
-# gem 'thin' # or mongrel
-# gem 'trinidad', :platform => 'jruby'
-
-# Project requirements
-gem 'rake'
-gem 'sinatra-flash', :require => 'sinatra/flash'
-
-# Component requirements
-gem 'bcrypt-ruby', :require => "bcrypt"
-gem 'erubis', "~> 2.7.0"
-gem 'mongoid', "2.4.12"
-gem 'bson_ext', :require => "mongo"
-
-# Development requirements
-group :development do
-  gem 'interactive_editor'
-  gem 'awesome_print'
+source 'https://rubygems.org'
+gem 'rails', '3.2.13'
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
 end
-
-# Test requirements
-group :test do
-  gem 'rspec'
-  gem 'rack-test', :require => "rack/test"
-  gem 'capybara'
-  gem 'launchy'
-  gem 'database_cleaner'
-end
-
-# Padrino Stable Gem
-gem 'padrino', '0.10.7'
-
-# Or Padrino Edge
-# gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
-
-# Or Individual Gems
-# %w(core gen helpers cache mailer admin).each do |g|
-#   gem 'padrino-' + g, '0.10.7'
-# end
+gem 'jquery-rails'
+gem "mongoid", ">= 3.1.2"
+gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
+gem "capybara", ">= 2.0.3", :group => :test
+gem "database_cleaner", ">= 1.0.0.RC1", :group => :test
+gem "mongoid-rspec", ">= 1.7.0", :group => :test
+gem "email_spec", ">= 1.4.0", :group => :test
+gem "guard-bundler", ">= 1.0.0", :group => :development
+gem "guard-rails", ">= 0.4.0", :group => :development
+gem "guard-rspec", ">= 2.5.2", :group => :development
+gem "rb-inotify", ">= 0.9.0", :group => :development, :require => false
+gem "rb-fsevent", ">= 0.9.3", :group => :development, :require => false
+gem "rb-fchange", ">= 0.0.6", :group => :development, :require => false
+gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
+gem "less-rails", ">= 2.2.6", :group => :assets
+gem "twitter-bootstrap-rails", ">= 2.2.4", :group => :assets
+gem "libv8", ">= 3.11.8"
+gem "therubyracer", ">= 0.11.3", :group => :assets, :platform => :ruby, :require => "v8"
+gem "devise", ">= 2.2.3"
+gem "cancan", ">= 1.6.9"
+gem "rolify", ">= 3.2.0"
+gem "simple_form", ">= 2.1.0"
+gem "quiet_assets", ">= 1.0.2", :group => :development
+gem "figaro", ">= 0.6.3"
+gem "better_errors", ">= 0.7.2", :group => :development
+gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
