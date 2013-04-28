@@ -1,0 +1,14 @@
+<h3>New Race</h3>
+
+<%= simple_form_for(@race, :url => races_path, :html => {:class => 'form-vertical' }) do |f| %>
+  <%= f.error_notification %>
+  <%= display_base_errors @race %>
+  <%= f.input :name, :autofocus => true, :class => 'input-large' %>
+
+  <h4>Athletes</h4>
+  <%= f.simple_fields_for :athletes do |athlete_form| %>
+    <%= athlete_form.input :number %>
+  <% end %>
+
+  <%= f.button :submit, 'Create', :class => 'btn-primary' %>
+<% end %>

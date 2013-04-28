@@ -4,6 +4,7 @@ class Race
 
   embeds_many :athletes
   embedded_in :artist
+  accepts_nested_attributes_for :athletes
 
   field :name, type: String
 
