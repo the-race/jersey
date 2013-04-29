@@ -3,8 +3,6 @@ class RacesController < ApplicationController
 
   def new
     @race = current_user.new_race
-    @race.athletes.new
-    @race.athletes.new
-    @race.athletes.build
+    3.times { @race.athletes.build }
   end
 end
