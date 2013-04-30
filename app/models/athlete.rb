@@ -7,5 +7,7 @@ class Athlete
   field :name, type: String
   field :number, type: String
 
-  validates_presence_of :name
+  validates_presence_of :number
+
+  attr_accessible :name, :number
 end

@@ -1,5 +1,8 @@
 class DashboardController < ApplicationController
+  before_filter :authenticate_user!
+
   def show
-    @user = User.first
+    @user = current_user
+    @races = current_user.races
   end
 end

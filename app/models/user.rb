@@ -38,11 +38,13 @@ class User
 
   validates_presence_of :name
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :athlete_number, :email, :password,
+  attr_accessible :name, :races, :athlete_number, :email, :password,
                   :password_confirmation, :remember_me,
                   :created_at, :updated_at
 
   def new_race
-    races.new
+    race = races.new
+    3.times { race.athletes.build }
+    race
   end
 end

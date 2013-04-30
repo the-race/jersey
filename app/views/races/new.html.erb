@@ -12,9 +12,11 @@
       <%= render 'athlete_fields', :f => athlete %>
     <% end %>
 
-    <div class='links'>
-      <%= link_to_add_association 'add athlete', f, :athletes, :class => 'btn' %>
-      <%= f.button :submit, 'Create', :class => 'btn-primary' %>
+    <div class='form-actions'>
+      <button type="submit" class="btn btn-primary">
+        <i class="icon-play icon-white"></i> Start
+      </button>
+      <%= link_to_add_association '<i class="icon-plus"></i> Add Athlete'.html_safe, f, :athletes, :class => 'btn' %>
     </div>
   </div>
 

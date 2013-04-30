@@ -1,1 +1,26 @@
 <h3>Dashboard</h3>
+
+<div class="span8">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Athletes</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @races.each do |race| %>
+    <tr>
+      <td><%= race.name %></td>
+      <td>
+        <ul>
+          <% race.athletes.each do |athlete| %>
+            <li><%= athlete.number %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>
