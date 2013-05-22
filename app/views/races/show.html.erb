@@ -1,0 +1,7 @@
+<h3><%= @race.name %></h3>
+
+<ul>
+<% @race.athletes.each do |athlete| %>
+  <li><%= athlete.number %></li>
+<% end %>
+</ul>
