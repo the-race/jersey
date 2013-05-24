@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
-gem 'jquery-rails'
+gem "rails", "3.2.13"
+gem "jquery-rails"
 gem "mongoid", ">= 3.1.2"
 gem "libv8", ">= 3.11.8"
 gem "devise", ">= 2.2.3"
@@ -9,12 +9,13 @@ gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.1.0"
 gem "figaro", ">= 0.6.3"
-gem "cocoon"
+gem "cocoon", "~> 1.1.2"
+gem "mechanize", "~> 2.7.0"
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem "sass-rails",   "~> 3.2.3"
+  gem "coffee-rails", "~> 3.2.1"
+  gem "uglifier", ">= 1.0.3"
   gem "less-rails", ">= 2.2.6"
   gem "twitter-bootstrap-rails", ">= 2.2.4"
   gem "therubyracer", ">= 0.11.3", :platform => :ruby, :require => "v8"
@@ -42,4 +43,6 @@ group :test do
   gem "email_spec", ">= 1.4.0"
   gem "rspec-rails", ">= 2.12.2"
   gem "factory_girl_rails", ">= 4.2.0"
+  gem "webmock", "~> 1.11.0"
+  gem "vcr", "~> 2.5.0"
 end
