@@ -12,9 +12,7 @@ feature 'sign up' do
 
     click_button 'Sign up'
 
-    save_and_open_page
-
-    expect(page).to have_content('Athletes')
+    expect(page).to have_content('Dashboard')
     expect(page).to have_content('Welcome! You have signed up successfully.')
   end
 end
