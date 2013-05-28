@@ -5,8 +5,9 @@ class Athlete
   embedded_in :race, :inverse_of => :athletes
 
   field :number, type: String
+  field :name,   type: String
 
   validates_presence_of :number
 
-  attr_accessible :number
+  attr_accessible :number, :name
 end
