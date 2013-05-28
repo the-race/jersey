@@ -7,7 +7,7 @@ class RacesController < ApplicationController
       athlete.name = gateway.name(athlete.number) unless (athlete.name)
     end
     @race.save
-    data  = gateway.activities(@race.athlete_numbers, period)
+    data = gateway.activities(@race.athlete_numbers, period)
     @race.activities(data)
   end
 
@@ -31,7 +31,7 @@ class RacesController < ApplicationController
   end
 
   def period
-    year + week
+    "#{year}#{week}"
   end
 
   def year
