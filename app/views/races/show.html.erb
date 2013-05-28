@@ -1,7 +1,145 @@
 <h3><%= @race.name %></h3>
+<h5><%= @race.period %></h5>
 
-<ul>
-<% @race.athletes.each do |athlete| %>
-  <li><%= athlete.number %></li>
-<% end %>
-</ul>
+<div id="distance" style="min-width: 400px; height: <%= @race.athletes.count * 100 %>px; width: 800px; margin: 0 auto"></div>
+
+<div id="climb" style="min-width: 400px; height: <%= @race.athletes.count * 100 %>px; width: 800px; margin: 0 auto"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<%= javascript_include_tag "application" %>
+
+<script type="text/javascript">
+      $(function () {
+          var distance;
+          var climb;
+
+          $(document).ready(function() {
+
+            distance = new Highcharts.Chart({
+              colors: ['Gold'],
+              chart: {
+              renderTo: 'distance',
+              animation: {
+                duration: 1500,
+                easing: 'easeOutBounce'
+              },
+              type: 'bar'
+              },
+              title: {
+              text: 'Yellow Jersey'
+              },
+              xAxis: {
+                  categories: <%= raw @race.names_by_distance.as_json %>,
+                title: {
+                  text: 'Athletes'
+                }
+              },
+              yAxis: {
+              min: 0,
+              title: {
+                text: 'Distance'
+              },
+              labels: {
+              overflow: 'justify'
+                      }
+              },
+              plotOptions: {
+                series: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function() {
+                                location.href = this.options.url;
+                            }
+                        }
+                    }
+                },
+                bar: {
+                  dataLabels: {
+                    enabled: true
+                  }
+                }
+              },
+              credits: {
+              enabled: false
+                       },
+              series: [{
+                animation: {
+                  duration: 2000
+                },
+                name: 'Distance',
+                data: <%= @race.distance.html_safe %>
+              }],
+              legend: {
+                enabled: false
+              } 
+            }, function(chart) {
+              chart.renderer.image('<%= path_to_image('yellow-jersey.png') %>', 225, 0, 50, 56)
+                .add();   
+              });
+
+            climb = new Highcharts.Chart({
+              colors: ['Red'],
+              chart: {
+              renderTo: 'climb',
+              animation: {
+                duration: 1500,
+                easing: 'easeOutBounce'
+              },
+              type: 'bar'
+              },
+              title: {
+              text: 'King of the Mountains Jersey'
+              },
+              xAxis: {
+                  categories: <%= raw @race.names_by_climb.as_json %>,
+                title: {
+                  text: 'Athletes'
+                }
+              },
+              yAxis: {
+              min: 0,
+              title: {
+                text: 'Climb'
+              },
+              labels: {
+              overflow: 'justify'
+                      }
+              },
+              plotOptions: {
+                series: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function() {
+                                location.href = this.options.url;
+                            }
+                        }
+                    }
+                },
+                bar: {
+                  dataLabels: {
+                    enabled: true
+                  }
+                }
+              },
+              credits: {
+              enabled: false
+                       },
+              series: [{
+                animation: {
+                  duration: 2000
+                },
+                name: 'Climb',
+                data: <%= @race.climb.html_safe %>
+              }],
+              legend: {
+                enabled: false
+              } 
+            }, function(chart) {
+              chart.renderer.image('<%= path_to_image('polkadot-jersey.png') %>', 225, 0, 50, 56)
+                .add();   
+              });
+          });
+    });
+  </script>
