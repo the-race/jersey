@@ -1,4 +1,5 @@
 class RaceDecorator < Draper::Decorator
+  decorates :race
 
   attr_reader :year, :week
 
@@ -7,9 +8,7 @@ class RaceDecorator < Draper::Decorator
     @year, @week = year, week
   end
 
-  def name
-    model.name
-  end
+  delegate :name
 
   def athlete_numbers
     model.map {|athlete| athlete.number}
@@ -21,6 +20,28 @@ class RaceDecorator < Draper::Decorator
 
   def athlete_count
     model.athletes.count
+  end
+
+  def previous_link
+    prev_year = year.to_i
+    prev_week = week.to_i - 1
+    if prev_week == 0
+      prev_year -= 1
+      prev_week  = 52
+    end
+    prev_week = "%02d" % prev_week.to_i
+    h.link_to 'Last week', h.race_path(model, year: prev_year, week: prev_week)
+  end
+
+  def next_link
+    next_year = year.to_i
+    next_week = week.to_i + 1
+    if next_week == 53
+      next_year += 1
+      next_week  = 1
+    end
+    next_week = "%02d" % next_week.to_i
+    h.link_to 'Next week', h.race_path(model, year: next_year, week: next_week)
   end
 
 ############ duplication much?
