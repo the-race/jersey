@@ -3,12 +3,16 @@ class RacesController < ApplicationController
 
   def show
     @race = current_user.races.find(params[:id])
-    @race.athletes.each do |athlete|
-      athlete.name = gateway.name(athlete.number) unless (athlete.name)
+    @race.athletes.all.each do |athlete|
+      athlete.name = gateway.name(athlete.number) unless athlete.name
+      total = athlete.totals.find_or_initialize_by(year: year, week: week)
+      if week == current_week || !total.persisted?
+        data  = gateway.activity(athlete.number, period)
+        total.populate_with(data)
+      end
     end
     @race.save
-    data = gateway.activities(@race.athlete_numbers, period)
-    @race.activities(data)
+    @race = RaceDecorator.new(@race, year, week)
   end
 
   def new

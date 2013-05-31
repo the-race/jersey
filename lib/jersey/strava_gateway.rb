@@ -51,7 +51,7 @@ module Jersey
       lines    = page.body.lines.to_a
       totals   = Nokogiri::HTML(lines[2]).search('li strong')
       {
-        number:       page.uri.to_s[/\d+/],
+        number:   page.uri.to_s[/\d+/],
         period:   lines[1][/Activities for (.+?)\\n/, 1],
         name:     lines[3][/img alt=\\'(.+?)\\'/, 1],
         distance: totals[0].children[0].text.to_f,

@@ -2,6 +2,7 @@ class Athlete
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  embeds_many :totals
   embedded_in :race, :inverse_of => :athletes
 
   field :number, type: String
