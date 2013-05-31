@@ -5,10 +5,9 @@
 
 <div id="climb" style="min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
 
-<p>Your latests efforts not showing? <%= link_to 'Refresh' %> TODO</p>
+<%= @race.previous_link %> | <%= @race.next_link %>
 
-<%#<%= link_to "Last week", :controller => "races", :action => "show", :id => @race, :year => @race.last_year, :week => @race.last_week %>
-<%#<%= link_to "Next week", :controller => "races", :action => "show", :id => @race, :year => @race.next_year, :week => @race.next_week%>
+<p>Your latests efforts not showing? <%= link_to 'Refresh' %> TODO</p>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <%= javascript_include_tag "application" %>
