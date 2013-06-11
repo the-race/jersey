@@ -13,6 +13,10 @@ class Race
   validates_presence_of :name
   attr_accessible :name, :athletes
 
+  def current_week
+    Time.new.strftime('%W').to_i + 1
+  end
+
   #def period
     #data_by_distance.first[:period]
   #end

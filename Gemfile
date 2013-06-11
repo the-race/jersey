@@ -10,8 +10,10 @@ gem 'rolify', '>= 3.2.0'
 gem 'simple_form', '>= 2.1.0'
 gem 'figaro', '>= 0.6.3'
 gem 'cocoon', '~> 1.1.2'
-gem 'mechanize', '~> 2.7.0'
 gem 'draper', '~> 1.0'
+gem 'mechanize', '~> 2.7.0'
+gem 'typhoeus', '~> 0.6.3'
+gem 'nokogiri', '~> 1.5.9'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

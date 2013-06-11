@@ -23,25 +23,31 @@ class RaceDecorator < Draper::Decorator
   end
 
   def previous_link
-    prev_year = year.to_i
-    prev_week = week.to_i - 1
+    prev_year = year
+    prev_week = week - 1
     if prev_week == 0
       prev_year -= 1
       prev_week  = 52
     end
-    prev_week = "%02d" % prev_week.to_i
+    prev_week = "%02d" % prev_week
     h.link_to 'Last week', h.race_path(model, year: prev_year, week: prev_week)
   end
 
   def next_link
-    next_year = year.to_i
-    next_week = week.to_i + 1
+    next_year = year
+    next_week = week + 1
     if next_week == 53
       next_year += 1
       next_week  = 1
     end
-    next_week = "%02d" % next_week.to_i
+    next_week = "%02d" % next_week
     h.link_to 'Next week', h.race_path(model, year: next_year, week: next_week)
+  end
+
+  def this_week_link
+    unless week == model.current_week
+      h.link_to '| Current race', h.race_path(model, year: year, week: model.current_week)
+    end
   end
 
 ############ duplication much?

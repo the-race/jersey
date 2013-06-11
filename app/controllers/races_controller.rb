@@ -6,7 +6,7 @@ class RacesController < ApplicationController
     @race.athletes.all.each do |athlete|
       athlete.name = gateway.name(athlete.number) unless athlete.name
       total = athlete.totals.find_or_initialize_by(year: year, week: week)
-      if week == current_week || !total.persisted?
+      if week == @race.current_week || !total.persisted?
         data  = gateway.activity(athlete.number, period)
         total.populate_with(data)
       end
@@ -39,15 +39,11 @@ class RacesController < ApplicationController
   end
 
   def year
-    params[:year] || Time.new.year
+    params[:year].to_i || Time.new.year
   end
 
   def week
-    params[:week] || current_week
-  end
-
-  def current_week
-    Time.new.strftime('%W').to_i + 1
+    params[:week].to_i || current_week
   end
 
 end

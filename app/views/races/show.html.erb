@@ -5,7 +5,7 @@
 
 <div id="climb" style="min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
 
-<%= @race.previous_link %> | <%= @race.next_link %>
+<%= @race.previous_link %> | <%= @race.next_link %> <%= @race.this_week_link %>
 
 <p>Your latests efforts not showing? <%= link_to 'Refresh' %> TODO</p>
 
