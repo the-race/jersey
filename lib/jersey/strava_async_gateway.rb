@@ -1,12 +1,5 @@
-#require 'spec_helper'
-
-require 'typhoeus'
-require 'nokogiri'
-
 module Jersey
-
   class StravaAsyncGateway
-
     LOGIN_URL      = 'https://www.strava.com/login'
     LOGIN_POST_URL = 'https://www.strava.com/session'
     COOKIE_FILE    = 'strava-cookie.txt'
@@ -47,14 +40,43 @@ module Jersey
       login
       url      = "http://app.strava.com/athletes/#{athlete_number}/interval?interval=#{interval}&interval_type=week&chart_type=miles&year_offset=0&_=1369352085457"
       request  = Typhoeus::Request.new(url, DEFAULT_PARAMS)
-      response = request.run
-      parse(response)
+      if block_given?
+        yield request
+      else
+        response = request.run
+        parse(response)
+      end
+    end
+
+    def activities(athlete_numbers, interval)
+      login
+
+      athletes = []
+      hydra    = Typhoeus::Hydra.new(:max_concurrency => 5)
+
+      athlete_numbers.each do |athlete_number|
+        activity(athlete_number, interval) do |request|
+          request.on_complete do |response|
+            athletes << parse(response)
+          end
+          hydra.queue(request)
+        end
+      end
+
+      hydra.run
+      athletes
     end
 
     private
     attr_reader :email, :password
 
     def login
+      url      = 'http://app.strava.com/dashboard'
+      request  = Typhoeus::Request.new(url, DEFAULT_PARAMS)
+      response = request.run
+      title    = response.body[/<title>(.*?)<\/title>/, 1]
+      return if title =~ /Home/
+
       request  = Typhoeus::Request.new(LOGIN_URL, DEFAULT_PARAMS)
       response = request.run
       html     = Nokogiri::HTML(response.body)
@@ -76,19 +98,6 @@ module Jersey
       else
         puts 'login success'
       end
-
-      #puts submit_res.body
-
-      #unless login_page.title =~ /Home/
-        #form          = login_page.form_with(action: '/session')
-        #form.email    = email
-        #form.password = password
-        #home_page     = agent.submit(form)
-        #unless home_page.title =~ /Home/
-          #raise "Login failed for email #{email}"
-        #end
-        #home_page
-      #end
     end
 
     def parse(response)
@@ -103,32 +112,4 @@ module Jersey
       }
     end
   end
-
-
-
-  describe StravaAsyncGateway do
-    subject { StravaAsyncGateway.new(ENV['STRAVA_EMAIL'], ENV['STRAVA_PASSWORD']) }
-
-    describe '#name' do
-      it "gets data from strava for the 1108047" do
-        #VCR.use_cassette 'lib/activity201321' do
-          subject.name('1108047').should == 'Justin R.'
-        #end
-      end
-    end
-
-    describe '#activity' do
-      it "gets data from strava for the 201321" do
-        #VCR.use_cassette 'lib/activity201321' do
-          data = subject.activity('1108047', '201321')
-          data[:number].should == '1108047'
-          data[:period].should == 'May 20, 2013 - May 26, 2013'
-          data[:name].should == 'Justin Ramel'
-          data[:distance].should == 215.3
-          data[:climb].should == 1543
-        #end
-      end
-    end
-  end
-
 end
