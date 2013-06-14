@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'typhoeus'
 require 'nokogiri'
+require 'vcr'
+require 'strava_async_gateway'
 
 module Jersey
   describe StravaAsyncGateway do
@@ -31,16 +33,23 @@ module Jersey
       it "gets multiple data from strava for the 201321" do
         #VCR.use_cassette 'lib/activities201321' do
           data = subject.activities(['1108047', '605007'], '201321')
-          data.first[:number].should == '1108047'
-          data.first[:period].should == 'May 20, 2013 - May 26, 2013'
-          data.first[:name].should == 'Justin Ramel'
-          data.first[:distance].should == 215.3
-          data.first[:climb].should == 1543
-          data.last[:number].should == '605007'
-          data.last[:period].should == 'May 20, 2013 - May 26, 2013'
-          data.last[:name].should == 'Anthony Griffiths'
-          data.last[:distance].should == 211.5
-          data.last[:climb].should == 2192
+          if data.first[:number] == '1108047'
+            justin, anthony = data.first, data.last
+          else
+            justin, anthony = data.last, data.first
+          end
+
+          justin[:number].should == '1108047'
+          justin[:period].should == 'May 20, 2013 - May 26, 2013'
+          justin[:name].should == 'Justin Ramel'
+          justin[:distance].should == 215.3
+          justin[:climb].should == 1543
+
+          anthony[:number].should == '605007'
+          anthony[:period].should == 'May 20, 2013 - May 26, 2013'
+          anthony[:name].should == 'Anthony Griffiths'
+          anthony[:distance].should == 211.5
+          anthony[:climb].should == 2192
         #end
       end
     end

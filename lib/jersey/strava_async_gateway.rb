@@ -16,11 +16,13 @@ module Jersey
       cookiefile:     COOKIE_FILE,
       cookiejar:      COOKIE_FILE,
       followlocation: true,
+      #verbose: true,
     }
 
     def initialize(email, password)
-      @email    = email
-      @password = password
+      @email     = email
+      @password  = password
+      @logged_in = false
     end
 
     def name(athlete_number)
@@ -37,9 +39,9 @@ module Jersey
     end
 
     def activity(athlete_number, interval)
-      login
-      url      = "http://app.strava.com/athletes/#{athlete_number}/interval?interval=#{interval}&interval_type=week&chart_type=miles&year_offset=0&_=1369352085457"
-      request  = Typhoeus::Request.new(url, DEFAULT_PARAMS)
+      #login
+      url     = "http://app.strava.com/athletes/#{athlete_number}/interval?interval=#{interval}&interval_type=week&chart_type=miles&year_offset=0"
+      request = Typhoeus::Request.new(url, DEFAULT_PARAMS)
       if block_given?
         yield request
       else
@@ -51,27 +53,28 @@ module Jersey
     def activities(athlete_numbers, interval)
       login
 
-      athletes = []
-      hydra    = Typhoeus::Hydra.new(:max_concurrency => 5)
+      data  = []
+      hydra = Typhoeus::Hydra.hydra
 
       athlete_numbers.each do |athlete_number|
         activity(athlete_number, interval) do |request|
           request.on_complete do |response|
-            athletes << parse(response)
+            data << parse(response)
           end
           hydra.queue(request)
         end
       end
 
       hydra.run
-      athletes
+      data
     end
 
     private
     attr_reader :email, :password
 
     def login
-      url      = 'http://app.strava.com/dashboard'
+      return if @logged_in
+      url      = 'http://app.strava.com/dashboard/new/web'
       request  = Typhoeus::Request.new(url, DEFAULT_PARAMS)
       response = request.run
       title    = response.body[/<title>(.*?)<\/title>/, 1]
@@ -98,6 +101,7 @@ module Jersey
       else
         puts 'login success'
       end
+      @logged_in = true
     end
 
     def parse(response)
