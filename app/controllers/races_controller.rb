@@ -3,16 +3,8 @@ class RacesController < ApplicationController
 
   def show
     @race = current_user.races.find(params[:id])
-    @race.athletes.all.each do |athlete|
-      athlete.name = gateway.name(athlete.number) unless athlete.name
-      total = athlete.totals.find_or_initialize_by(year: year, week: week)
-      if week == @race.current_week || !total.persisted?
-        data  = gateway.activity(athlete.number, period)
-        total.populate_with(data)
-      end
-    end
-    @race.save
-    @race = RaceDecorator.new(@race, year, week)
+    @race.update_totals(gateway, interval)
+    @race = RaceDecorator.new(@race, interval)
   end
 
   def new
@@ -34,16 +26,19 @@ class RacesController < ApplicationController
     Jersey::StravaAsyncGateway.new(ENV['STRAVA_EMAIL'], ENV['STRAVA_PASSWORD'])
   end
 
-  def period
-    "#{year}#{week}"
+  def interval
+    Interval.new(year, week)
   end
 
   def year
-    params[:year].to_i || Time.new.year
+    params[:year] ? params[:year].to_i : Time.new.year
   end
 
   def week
-    params[:week].to_i || current_week
+    params[:week] ? params[:week].to_i : current_week
   end
 
+  def current_week
+    Time.new.strftime('%W').to_i + 1
+  end
 end

@@ -2,7 +2,7 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_many :races
+  has_many :races, autosave: true
 
   rolify
 

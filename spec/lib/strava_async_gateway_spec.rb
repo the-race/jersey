@@ -16,18 +16,18 @@ module Jersey
       end
     end
 
-    describe '#activity' do
-      it "gets data from strava for the 201321" do
+    #describe '#activity' do
+      #it "gets data from strava for the 201321" do
         #VCR.use_cassette 'lib/activity201321' do
-          data = subject.activity('1108047', '201321')
-          data[:number].should == '1108047'
-          data[:period].should == 'May 20, 2013 - May 26, 2013'
-          data[:name].should == 'Justin Ramel'
-          data[:distance].should == 215.3
-          data[:climb].should == 1543
+          #data = subject.activity('1108047', '201321')
+          #data[:number].should == '1108047'
+          #data[:period].should == 'May 20, 2013 - May 26, 2013'
+          #data[:name].should == 'Justin Ramel'
+          #data[:distance].should == 215.3
+          #data[:climb].should == 1543
         #end
-      end
-    end
+      #end
+    #end
 
     describe '#activities' do
       it "gets multiple data from strava for the 201321" do
