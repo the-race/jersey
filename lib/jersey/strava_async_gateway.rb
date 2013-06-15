@@ -2,6 +2,7 @@ module Jersey
   class StravaAsyncGateway
     LOGIN_URL      = 'https://www.strava.com/login'
     LOGIN_POST_URL = 'https://www.strava.com/session'
+    DASHBOARD_URL  = 'http://app.strava.com/dashboard/new/web'
     COOKIE_FILE    = 'strava-cookie.txt'
 
     HEADERS = {
@@ -38,18 +39,6 @@ module Jersey
       "#{first} #{initial}."
     end
 
-    def activity(athlete_number, interval)
-      #login
-      url     = "http://app.strava.com/athletes/#{athlete_number}/interval?interval=#{interval}&interval_type=week&chart_type=miles&year_offset=0"
-      request = Typhoeus::Request.new(url, DEFAULT_PARAMS)
-      if block_given?
-        yield request
-      else
-        response = request.run
-        parse(response)
-      end
-    end
-
     def activities(athlete_numbers, interval)
       login
 
@@ -74,8 +63,7 @@ module Jersey
 
     def login
       return if @logged_in
-      url      = 'http://app.strava.com/dashboard/new/web'
-      request  = Typhoeus::Request.new(url, DEFAULT_PARAMS)
+      request  = Typhoeus::Request.new(DASHBOARD_URL, DEFAULT_PARAMS)
       response = request.run
       title    = response.body[/<title>(.*?)<\/title>/, 1]
       return if title =~ /Home/
@@ -102,6 +90,12 @@ module Jersey
         puts 'login success'
       end
       @logged_in = true
+    end
+
+    def activity(athlete_number, interval)
+      url     = "http://app.strava.com/athletes/#{athlete_number}/interval?interval=#{interval}&interval_type=week&chart_type=miles&year_offset=0"
+      request = Typhoeus::Request.new(url, DEFAULT_PARAMS)
+      yield request
     end
 
     def parse(response)

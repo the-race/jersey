@@ -2,8 +2,8 @@ class Race
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_many :athletes
-  embedded_in :user, :inverse_of => :races
+  has_many :athletes, autosave: true
+  belongs_to :user, :inverse_of => :races
 
   accepts_nested_attributes_for :athletes,
                                 :reject_if => lambda { |a| a[:number].blank? }
@@ -13,49 +13,24 @@ class Race
   validates_presence_of :name
   attr_accessible :name, :athletes
 
-  def current_week
-    Time.new.strftime('%W').to_i + 1
+  def update_totals(gateway, interval)
+    to_update = athletes_to_update(interval)
+    unless to_update.empty?
+      athlete_numbers = to_update.map {|a| a.number}
+      totals = gateway.activities(athlete_numbers, interval)
+      totals.each do |data|
+        athlete = to_update.select {|a| a.number == data[:number]}.first
+        athlete.fetch_name(gateway)
+        total = athlete.totals.find_or_initialize_by(interval.to_params)
+        total.populate_with(data)
+      end
+      save
+    end
   end
 
-  #def period
-    #data_by_distance.first[:period]
-  #end
-
-  #def activities(year, week, data)
-    #@year = year.to_i
-    #@week = week.to_i
-    #@data = data
-    #update_names
-    #convert_km_to_miles
-    #convert_meters_to_feet
-  #end
-
-  def last_week
-    @week - 1
+  private
+  def athletes_to_update(interval)
+    return athletes if interval.current_week?
+    athletes.select {|a| !a.has_totals_for?(interval)}
   end
-
-  def last_year
-    @year
-  end
-
-  def next_week
-    @week + 1
-  end
-
-  def next_year
-    @year
-  end
-
-  #def update_names
-    #@data.each {|d| d[:name] = athletes.select {|a| a.number == d[:number]}.first.name}
-  #end
-
-  #def convert_km_to_miles
-    #@data.each {|d| d[:distance] = d[:distance] * 0.621371192237334}
-  #end
-
-  #def convert_meters_to_feet
-    #@data.each {|d| d[:climb] = d[:climb] * 3.2808}
-  #end
-
 end
