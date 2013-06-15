@@ -2,7 +2,7 @@ class Race
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  has_many :athletes, autosave: true
+  has_many   :athletes, autosave: true
   belongs_to :user, :inverse_of => :races
 
   accepts_nested_attributes_for :athletes,

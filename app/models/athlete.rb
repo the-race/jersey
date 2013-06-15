@@ -3,7 +3,7 @@ class Athlete
   include Mongoid::Timestamps
 
   embeds_many :totals
-  belongs_to :race, :inverse_of => :athletes
+  belongs_to  :race, :inverse_of => :athletes
 
   field :number, type: String
   field :name,   type: String

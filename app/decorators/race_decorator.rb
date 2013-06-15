@@ -74,6 +74,14 @@ class RaceDecorator < Draper::Decorator
   end
 ############# encapsulate what varies?
 
+  def distance_units
+    model.user.units == Units::METRIC ? 'KM' : 'Miles'
+  end
+
+  def climb_units
+    model.user.units == Units::METRIC ? 'Meters' : 'Feet'
+  end
+
   def totals_by_distance
     model.athletes.map {|a| a.totals_for(interval)}
                        .sort {|x, y| y.distance_km <=> x.distance_km }
