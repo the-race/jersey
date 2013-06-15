@@ -6,9 +6,7 @@ module Jersey
     COOKIE_FILE    = 'strava-cookie.txt'
 
     HEADERS = {
-      'Accept'        => 'text/html,text/javascript',
-      'Cache-Control' => 'no-cache',
-      'Pragma'        => 'no-cache',
+      'Accept'        => 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript',
       'User-Agent'    => 'mozilla/5.0 (macintosh; intel mac os x 10_6_8) applewebkit/535.19 (khtml, like gecko) chrome/18.0.1025.168 safari/535.19',
     }
 
@@ -16,21 +14,21 @@ module Jersey
       headers:        HEADERS,
       cookiefile:     COOKIE_FILE,
       cookiejar:      COOKIE_FILE,
-      followlocation: true,
-      #verbose: true,
     }
 
     def initialize(email, password)
       @email     = email
       @password  = password
-      @logged_in = false
     end
 
     def name(athlete_number)
-      login
       url      = "http://app.strava.com/athletes/#{athlete_number}"
       request  = Typhoeus::Request.new(url, DEFAULT_PARAMS)
       response = request.run
+      if login_redirect?(response)
+        login
+        response = request.run
+      end
       title    = response.body[/<title>(.*?)<\/title>/, 1]
       name     = title.split(' | ')[1]
       splits   = name.split(' ')
@@ -40,14 +38,16 @@ module Jersey
     end
 
     def activities(athlete_numbers, interval)
-      login
-
       data  = []
       hydra = Typhoeus::Hydra.hydra
 
       athlete_numbers.each do |athlete_number|
         activity(athlete_number, interval) do |request|
           request.on_complete do |response|
+            if login_redirect?(response)
+              login
+              response = request.run
+            end
             data << parse(response)
           end
           hydra.queue(request)
@@ -61,8 +61,11 @@ module Jersey
     private
     attr_reader :email, :password
 
+    def login_redirect?(response)
+      response.response_code == 302
+    end
+
     def login
-      return if @logged_in
       request  = Typhoeus::Request.new(DASHBOARD_URL, DEFAULT_PARAMS)
       response = request.run
       title    = response.body[/<title>(.*?)<\/title>/, 1]
@@ -89,12 +92,16 @@ module Jersey
       else
         puts 'login success'
       end
-      @logged_in = true
     end
 
     def activity(athlete_number, interval)
-      url     = "http://app.strava.com/athletes/#{athlete_number}/interval?interval=#{interval}&interval_type=week&chart_type=miles&year_offset=0"
-      request = Typhoeus::Request.new(url, DEFAULT_PARAMS)
+      url     = "http://app.strava.com/athletes/#{athlete_number}/interval?interval=#{interval}&interval_type=week&chart_type=miles&year_offset=0&_=1371324855824"
+      params  = {
+        headers:    HEADERS.merge({'X-Requested-With' => 'XMLHttpRequest'}),
+        cookiefile: COOKIE_FILE,
+        cookiejar:  COOKIE_FILE,
+      }
+      request = Typhoeus::Request.new(url, params)
       yield request
     end
 

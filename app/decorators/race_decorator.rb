@@ -34,19 +34,21 @@ class RaceDecorator < Draper::Decorator
   end
 
   def next_link
-    next_year = interval.year
-    next_week = interval.week + 1
-    if next_week == 53
-      next_year += 1
-      next_week  = 1
+    unless interval.current_week?
+      next_year = interval.year
+      next_week = interval.week + 1
+      if next_week == 53
+        next_year += 1
+        next_week  = 1
+      end
+      next_week = "%02d" % next_week
+      h.raw(' | ') + h.link_to('Next week', h.race_path(model, year: next_year, week: next_week))
     end
-    next_week = "%02d" % next_week
-    h.link_to 'Next week', h.race_path(model, year: next_year, week: next_week)
   end
 
   def this_week_link
     unless interval.current_week?
-        h.link_to '| Current race', h.race_path(model, year: interval.year, week: interval.current_week)
+      h.raw(' | ') + h.link_to('Current race', h.race_path(model, year: interval.year, week: interval.current_week))
     end
   end
 
