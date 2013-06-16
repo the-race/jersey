@@ -14,6 +14,7 @@ module Jersey
       headers:        HEADERS,
       cookiefile:     COOKIE_FILE,
       cookiejar:      COOKIE_FILE,
+      followlocation: true,
     }
 
     def initialize(email, password)
@@ -89,6 +90,7 @@ module Jersey
       response = request.run
       if response.body.include?('error message simple')
         puts 'login error!'
+        p response
       else
         puts 'login success'
       end

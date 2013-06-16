@@ -63,19 +63,19 @@ class RaceDecorator < Draper::Decorator
 
   def distance
     totals_by_distance.map do |t|
-      "{y: #{'%.1f' % (t.distance_km || 0)}, url: 'http://app.strava.com/athletes/#{t.athlete.number}'}"
+      "{y: #{'%.2f' % (t.distance || 0)}, url: 'http://app.strava.com/athletes/#{t.athlete.number}'}"
     end.to_s.gsub('"', '')
   end
 
   def climb
     totals_by_climb.map do |t|
-      "{y: #{'%.1f' % (t.climb_meters || 0)}, url: 'http://app.strava.com/athletes/#{t.athlete.number}'}"
+      "{y: #{'%.2f' % (t.climb || 0)}, url: 'http://app.strava.com/athletes/#{t.athlete.number}'}"
     end.to_s.gsub('"', '')
   end
 ############# encapsulate what varies?
 
   def distance_units
-    model.user.units == Units::METRIC ? 'KM' : 'Miles'
+    model.user.units == Units::METRIC ? 'Km' : 'Miles'
   end
 
   def climb_units
@@ -84,26 +84,31 @@ class RaceDecorator < Draper::Decorator
 
   def totals_by_distance
     model.athletes.map {|a| a.totals_for(interval)}
-                       .sort {|x, y| y.distance_km <=> x.distance_km }
+                       .sort {|x, y| y.distance <=> x.distance}
   end
 
   def totals_by_climb
-    totals_by_distance.sort {|x, y| y.climb_meters <=> x.climb_meters }
+    totals_by_distance.sort {|x, y| y.climb <=> x.climb}
   end
 
   def leaderboard_by_distance
-    leaderboard = model.athletes.map  {|a| { name: a.name, distance: a.totals_for(interval).distance_km, behind: '-' } }
-                                .sort {|x, y| y[:distance] <=> x[:distance] }
-    leader, *rest = leaderboard
-    rest.each {|a| a[:behind] = '%.1f' % (leader[:distance] - a[:distance])}
-    leaderboard
+    leaderboard = model.athletes.map {|a| create(a, a.totals_for(interval).distance)}
+    populate_and_sort(leaderboard)
   end
 
   def leaderboard_by_climb
-    leaderboard = model.athletes.map  {|a| { name: a.name, climb: a.totals_for(interval).climb_meters, behind: '-' } }
-                                .sort {|x, y| y[:climb] <=> x[:climb] }
-    leader, *rest = leaderboard
-    rest.each {|a| a[:behind] = leader[:climb] - a[:climb]}
+    board = model.athletes.map {|a| create(a, a.totals_for(interval).climb)}
+    populate_and_sort(board)
+  end
+
+  private
+  def create(athlete, total)
+    Leaderboard.new(athlete.name, total, '-')
+  end
+
+  def populate_and_sort(leaderboard)
+    leader, *rest = leaderboard.sort! {|x, y| y.total <=> x.total}
+    rest.each {|a| a.behind = leader.total - a.total}
     leaderboard
   end
 end
