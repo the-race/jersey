@@ -3,58 +3,12 @@
 
 <div class="row">
   <div id="distance" style="float:left;min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
-
-  <div id="distance-rankings" style="float:left">
-    <table class="table table-striped table-bordered">
-      <caption><h5>Leaderboard</h5></caption>
-      <thead>
-        <tr>
-          <td>Rank</td>
-          <td>Name</td>
-          <td>Distance</td>
-          <td>Behind Leader</td>
-        </tr>
-      </thead>
-      <tbody>
-        <% @race.leaderboard_by_distance.each_with_index do |data, index| %>
-          <tr>
-            <td><%= index + 1 %></td>
-            <td><%= data[:name] %></td>
-            <td><%= data[:distance] %></td>
-            <td><%= data[:behind] %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <%= render :partial => "leaderboard", :locals => { units: @race.distance_units, leaderboard: @race.leaderboard_by_distance } %>
 </div>
 
 <div class="row">
   <div id="climb" style="float:left;min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
-
-  <div id="climb-rankings" style="float:left">
-    <table class="table table-striped table-bordered">
-      <caption><h5>Leaderboard</h5></caption>
-      <thead>
-        <tr>
-          <td>Rank</td>
-          <td>Name</td>
-          <td>Distance</td>
-          <td>Behind Leader</td>
-        </tr>
-      </thead>
-      <tbody>
-        <% @race.leaderboard_by_climb.each_with_index do |data, index| %>
-          <tr>
-            <td><%= index + 1 %></td>
-            <td><%= data[:name] %></td>
-            <td><%= data[:climb] %></td>
-            <td><%= data[:behind] %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <%= render :partial => "leaderboard", :locals => { units: @race.climb_units, leaderboard: @race.leaderboard_by_climb } %>
 </div>
 
 <div class="row">
@@ -94,7 +48,7 @@
               yAxis: {
               min: 0,
               title: {
-                text: 'Distance'
+                text: 'Distance (<%= @race.distance_units %>)'
               },
               labels: {
               overflow: 'justify'
@@ -146,7 +100,7 @@
               type: 'bar'
               },
               title: {
-              text: 'King of the Mountains Jersey'
+              text: 'KoM Jersey'
               },
               xAxis: {
                   categories: <%= raw @race.names_by_climb.as_json %>,
@@ -157,7 +111,7 @@
               yAxis: {
               min: 0,
               title: {
-                text: 'Climb'
+                text: 'Climb (<%= @race.climb_units %>)'
               },
               labels: {
               overflow: 'justify'
