@@ -1,5 +1,5 @@
 <h3><%= @race.name %></h3>
-<h5><%= @race.period %></h5>
+<h5><%= @race.interval_pretty %></h5>
 
 <div class="row">
   <div id="distance" style="float:left;min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
@@ -12,12 +12,16 @@
 </div>
 
 <div class="row">
-  <%= @race.previous_link %> <%= @race.next_link %> <%= @race.this_week_link %>
-  <p>Your latests efforts not showing? <%= link_to 'Refresh' %> TODO</p>
+  <div class="pagination">
+    <ul>
+      <%= @race.previous_link %>
+      <%= @race.next_link %>
+      <%= @race.this_week_link %>
+    </ul>
+  </div>
+    
+  <p>Your latests efforts not showing? <%= link_to('<i class="icon-refresh"></i> Refresh'.html_safe, race_path(@race)) %> TODO</p>
 </div>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<%= javascript_include_tag "application" %>
 
 <script type="text/javascript">
       $(function () {

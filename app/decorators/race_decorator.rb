@@ -14,8 +14,11 @@ class RaceDecorator < Draper::Decorator
     model.map {|athlete| athlete.number}
   end
 
-  def period
-    "fetch this from period table by period"
+  def interval_pretty
+    date_format = '%d %b, %Y'
+    start_date  = Date.commercial(interval.year, interval.week)
+    end_date    = start_date + 6
+    "#{start_date.strftime(date_format)} - #{end_date.strftime(date_format)}"
   end
 
   def athlete_count
@@ -30,7 +33,7 @@ class RaceDecorator < Draper::Decorator
       prev_week  = 52
     end
     prev_week = "%02d" % prev_week
-    h.link_to 'Previous week', h.race_path(model, year: prev_year, week: prev_week)
+    h.raw('<li>') + h.link_to('<i class="icon-arrow-left"></i>'.html_safe, h.race_path(model, year: prev_year, week: prev_week)) + h.raw('</li>')
   end
 
   def next_link
@@ -42,13 +45,13 @@ class RaceDecorator < Draper::Decorator
         next_week  = 1
       end
       next_week = "%02d" % next_week
-      h.raw(' | ') + h.link_to('Next week', h.race_path(model, year: next_year, week: next_week))
+      h.raw('<li>') + h.link_to('<i class="icon-arrow-right"></i>'.html_safe, h.race_path(model, year: next_year, week: next_week)) + h.raw('</li>')
     end
   end
 
   def this_week_link
     unless interval.current_week?
-      h.raw(' | ') + h.link_to('Current race', h.race_path(model, year: interval.year, week: interval.current_week))
+      h.raw('<li>') + h.link_to('<i class="icon-home"></i>'.html_safe, h.race_path(model, year: interval.year, week: interval.current_week)) + h.raw('</li>')
     end
   end
 
