@@ -2,13 +2,23 @@
 <h5><%= @race.interval_pretty %></h5>
 
 <div class="row">
-  <div id="distance" style="float:left;min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
-  <%= render :partial => "leaderboard", :locals => { units: @race.distance_units, leaderboard: @race.leaderboard_by_distance } %>
-</div>
 
-<div class="row">
-  <div id="climb" style="float:left;min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
-  <%= render :partial => "leaderboard", :locals => { units: @race.climb_units, leaderboard: @race.leaderboard_by_climb } %>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#yellow" data-toggle="tab"><%= image_tag('yellow-jersey-small.png') %> Yellow Jersey</a></li>
+    <li><a href="#kom" data-toggle="tab"><%= image_tag('polkadot-jersey-small.png') %> KoM Jersey</a></li>
+  </ul>
+
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade in active" id="yellow">
+      <div id="distance" style="float:left;min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
+      <%= render :partial => "leaderboard", :locals => { units: @race.distance_units, leaderboard: @race.leaderboard_by_distance } %>
+    </div>
+    <div class="tab-pane fade" id="kom">
+      <div id="climb" style="float:left;min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
+      <%= render :partial => "leaderboard", :locals => { units: @race.climb_units, leaderboard: @race.leaderboard_by_climb } %>
+    </div>
+  </div>
+
 </div>
 
 <div class="row">
@@ -88,10 +98,7 @@
               legend: {
                 enabled: false
               } 
-            }, function(chart) {
-              chart.renderer.image('<%= path_to_image('yellow-jersey.png') %>', 225, 0, 50, 56)
-                .add();   
-              });
+            });
 
             climb = new Highcharts.Chart({
               colors: ['Red'],
@@ -151,10 +158,7 @@
               legend: {
                 enabled: false
               } 
-            }, function(chart) {
-              chart.renderer.image('<%= path_to_image('polkadot-jersey.png') %>', 225, 0, 50, 56)
-                .add();   
-              });
+            });
           });
     });
   </script>
