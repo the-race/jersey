@@ -20,11 +20,12 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '~> 1.0.3'
   gem 'less-rails', '~> 2.2.6'
-  gem 'twitter-bootstrap-rails', '~> 2.2.4'
+  gem 'twitter-bootstrap-rails', '~> 2.2.7'
   gem 'therubyracer', '~> 0.11.3', :platform => :ruby, :require => 'v8'
 end
 
 group :development do
+  gem 'thin', '~> 1.5.1'
   gem 'guard-bundler', '~> 1.0.0'
   gem 'guard-rails', '~> 0.4.0'
   gem 'guard-rspec', '~> 2.5.2'
