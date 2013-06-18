@@ -33,26 +33,34 @@ class RaceDecorator < Draper::Decorator
       prev_week  = 52
     end
     prev_week = "%02d" % prev_week
-    h.raw('<li>') + h.link_to('<i class="icon-arrow-left"></i>'.html_safe, h.race_path(model, year: prev_year, week: prev_week)) + h.raw('</li>')
+    h.content_tag(:li, h.link_to('<i class="icon-arrow-left"></i>'.html_safe, h.race_path(model, year: prev_year, week: prev_week)))
   end
 
   def next_link
-    unless interval.current_week?
-      next_year = interval.year
-      next_week = interval.week + 1
-      if next_week == 53
-        next_year += 1
-        next_week  = 1
-      end
-      next_week = "%02d" % next_week
-      h.raw('<li>') + h.link_to('<i class="icon-arrow-right"></i>'.html_safe, h.race_path(model, year: next_year, week: next_week)) + h.raw('</li>')
+    attributes = {}
+    if interval.current_week?
+      attributes[:class] = 'disabled'
     end
+    next_year = interval.year
+    next_week = interval.week + 1
+    if next_week == 53
+      next_year += 1
+      next_week  = 1
+    end
+    next_week = "%02d" % next_week
+    h.content_tag(:li, h.link_to('<i class="icon-arrow-right"></i>'.html_safe, h.race_path(model, year: next_year, week: next_week)), attributes)
+  end
+
+  def update_link
+    h.link_to('<i class="icon-refresh"></i> Update now'.html_safe, h.race_path(model, interval.to_params), :method=> :put)
   end
 
   def this_week_link
-    unless interval.current_week?
-      h.raw('<li>') + h.link_to('<i class="icon-home"></i>'.html_safe, h.race_path(model, year: interval.year, week: interval.current_week)) + h.raw('</li>')
+    attributes = {}
+    if interval.current_week?
+      attributes[:class] = 'active'
     end
+    h.content_tag(:li, h.link_to('<i class="icon-home"></i>'.html_safe, h.race_path(model, year: interval.year, week: interval.current_week)), attributes)
   end
 
 ############ duplication much?

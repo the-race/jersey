@@ -9,5 +9,8 @@ Jersey::Application.routes.draw do
   resources :users
   resources :races
 
+  get '/races/:id/:year/:week' => 'races#show'
+  put '/races/:id/:year/:week' => 'races#upate'
+
   match "dashboard" => "dashboard#show"
 end

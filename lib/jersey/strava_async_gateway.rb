@@ -112,7 +112,6 @@ module Jersey
       totals   = Nokogiri::HTML(lines[2]).search('li strong')
       {
         number:   lines[0][/athletes\/(.+?)#/, 1],
-        period:   lines[1][/Activities for (.+?)\\n/, 1],
         name:     lines[3][/img alt=\\'(.+?)\\'/, 1],
         distance: totals[0].children[0].text.to_f,
         climb:    totals[2].children[0].text.sub(',', '').to_i
