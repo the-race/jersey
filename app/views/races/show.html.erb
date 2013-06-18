@@ -1,6 +1,4 @@
 <h3><%= @race.name %></h3>
-<h5><%= @race.interval_pretty %></h5>
-
 <div class="row">
 
   <ul class="nav nav-tabs">
@@ -19,18 +17,17 @@
     </div>
   </div>
 
-</div>
-
-<div class="row">
   <div class="pagination">
     <ul>
       <%= @race.previous_link %>
+      <li><a><%= @race.interval_pretty %></a></li>
       <%= @race.next_link %>
       <%= @race.this_week_link %>
     </ul>
   </div>
-    
-  <p>Your latests efforts not showing? <%= link_to('<i class="icon-refresh"></i> Refresh'.html_safe, race_path(@race)) %> TODO</p>
+
+  <p>Your latests efforts not showing? <%= @race.update_link %></p>
+
 </div>
 
 <script type="text/javascript">

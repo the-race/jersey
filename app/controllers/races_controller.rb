@@ -3,7 +3,7 @@ class RacesController < ApplicationController
 
   def show
     @race = current_user.races.find(params[:id])
-    @race.update_totals(gateway, interval)
+    @race.check_and_update_totals(gateway, interval)
     @race = RaceDecorator.new(@race, interval)
   end
 
@@ -19,6 +19,12 @@ class RacesController < ApplicationController
     else
       redirect_to new_race_path, :alert => "Unable to create race."
     end
+  end
+
+  def update
+    @race = current_user.races.find(params[:id])
+    @race.force_update_totals(gateway, interval)
+    redirect_to race_path(@race, interval.to_params)
   end
 
   private
