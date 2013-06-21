@@ -1,10 +1,14 @@
 Interval = Struct.new(:year, :week) do
+  def current_year
+    Time.new.year
+  end
+
   def current_week
     Time.new.strftime('%W').to_i + 1
   end
 
   def current_week?
-    week == current_week
+    year == current_year and week == current_week
   end
 
   def to_params
@@ -12,6 +16,6 @@ Interval = Struct.new(:year, :week) do
   end
 
   def to_s
-    "#{year}#{week}"
+    "#{year}#{"%02d" % week}"
   end
 end
