@@ -60,7 +60,7 @@ class RaceDecorator < Draper::Decorator
     if interval.current_week?
       attributes[:class] = 'active'
     end
-    h.content_tag(:li, h.link_to('<i class="icon-home"></i>'.html_safe, h.race_path(model, year: interval.year, week: interval.current_week)), attributes)
+    h.content_tag(:li, h.link_to('<i class="icon-home"></i>'.html_safe, h.race_path(model, year: interval.current_year, week: interval.current_week)), attributes)
   end
 
 ############ duplication much?
