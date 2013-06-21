@@ -1,6 +1,7 @@
 class Race
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
 
   has_many   :athletes, autosave: true
   belongs_to :user, :inverse_of => :races
@@ -9,8 +10,10 @@ class Race
                                 :reject_if => lambda { |a| a[:number].blank? }
 
   field :name, type: String
+  slug  :name
 
-  validates_presence_of :name
+  validates_presence_of   :name
+  validates_uniqueness_of :name
   attr_accessible :name, :athletes
 
   def check_and_update_totals(gateway, interval)
@@ -35,8 +38,7 @@ class Race
       total = athlete.totals.find_or_initialize_by(interval.to_params)
       total.populate_with(data)
     end
-    save
-  end
+    save end
 
   def athletes_to_update(interval)
     return athletes if interval.current_week?
