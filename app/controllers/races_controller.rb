@@ -2,7 +2,7 @@ class RacesController < ApplicationController
   before_filter :authenticate_user!
 
   def show
-    @race = current_user.races.find(params[:id])
+    @race = Race.find params[:id]
     @race.check_and_update_totals(gateway, interval)
     @race = RaceDecorator.new(@race, interval)
   end
