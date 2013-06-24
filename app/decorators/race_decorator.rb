@@ -26,41 +26,31 @@ class RaceDecorator < Draper::Decorator
   end
 
   def previous_link
-    prev_year = interval.year
-    prev_week = interval.week - 1
-    if prev_week == 0
-      prev_year -= 1
-      prev_week  = 52
-    end
-    prev_week = "%02d" % prev_week
-    h.content_tag(:li, h.link_to('<i class="icon-arrow-left"></i>'.html_safe, h.race_path(model, year: prev_year, week: prev_week)))
+    params = interval.previous.to_params
+    h.content_tag(:li, h.link_to('<i class="icon-arrow-left"></i>'.html_safe, h.race_path(model, params)))
   end
 
   def next_link
     attributes = {}
-    if interval.current_week?
-      attributes[:class] = 'disabled'
+    attributes[:class] = 'disabled' if interval.current_week?
+    next_interval = interval.next
+    if next_interval.current_week?
+      race_path = h.race_path(model)
+    else
+      race_path = h.race_path(model, next_interval.to_params)
     end
-    next_year = interval.year
-    next_week = interval.week + 1
-    if next_week == 53
-      next_year += 1
-      next_week  = 1
-    end
-    next_week = "%02d" % next_week
-    h.content_tag(:li, h.link_to('<i class="icon-arrow-right"></i>'.html_safe, h.race_path(model, year: next_year, week: next_week)), attributes)
-  end
 
-  def update_link
-    h.link_to('<i class="icon-refresh"></i> Update now'.html_safe, h.race_path(model, interval.to_params), :method=> :put)
+    h.content_tag(:li, h.link_to('<i class="icon-arrow-right"></i>'.html_safe, race_path), attributes)
   end
 
   def this_week_link
     attributes = {}
-    if interval.current_week?
-      attributes[:class] = 'active'
-    end
-    h.content_tag(:li, h.link_to('<i class="icon-home"></i>'.html_safe, h.race_path(model, year: interval.current_year, week: interval.current_week)), attributes)
+    attributes[:class] = 'active' if interval.current_week?
+    h.content_tag(:li, h.link_to('<i class="icon-home"></i>'.html_safe, h.race_path(model)), attributes)
+  end
+
+  def update_link
+    h.link_to('<i class="icon-refresh"></i> Update now'.html_safe, h.race_path(model, interval.to_params), :method=> :put)
   end
 
 ############ duplication much?
