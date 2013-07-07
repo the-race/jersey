@@ -1,4 +1,7 @@
-<h3>Athletes</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
+<h3>Races</h3>
+
+<ul>
+<% @races.each do |race| %>
+  <li><%=link_to race.name, race %></li>
 <% end %>
+</ul>

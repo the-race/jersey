@@ -1,5 +1,5 @@
 class RacesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show]
 
   def show
     @race = Race.find params[:id]
