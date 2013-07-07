@@ -1,34 +1,32 @@
 <h3><%= @race.name %></h3>
-<div class="row">
 
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#yellow" data-toggle="tab"><%= image_tag('yellow-jersey-small.png') %> Yellow Jersey</a></li>
-    <li><a href="#kom" data-toggle="tab"><%= image_tag('polkadot-jersey-small.png') %> KoM Jersey</a></li>
-  </ul>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#yellow" data-toggle="tab"><%= image_tag('yellow-jersey-small.png') %> Yellow Jersey</a></li>
+  <li><a href="#kom" data-toggle="tab"><%= image_tag('polkadot-jersey-small.png') %> KoM Jersey</a></li>
+</ul>
 
-  <div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade in active" id="yellow">
-      <div id="distance" style="float:left;min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
-      <%= render :partial => "leaderboard", :locals => { units: @race.distance_units, leaderboard: @race.leaderboard_by_distance } %>
-    </div>
-    <div class="tab-pane fade" id="kom">
-      <div id="climb" style="float:left;min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
-      <%= render :partial => "leaderboard", :locals => { units: @race.climb_units, leaderboard: @race.leaderboard_by_climb } %>
-    </div>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade in active" id="yellow">
+    <div id="distance" style="float:left;min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
+    <%= render :partial => "leaderboard", :locals => { units: @race.distance_units, leaderboard: @race.leaderboard_by_distance } %>
   </div>
-
-  <div class="pagination">
-    <ul>
-      <%= @race.previous_link %>
-      <li><a><%= @race.interval_pretty %></a></li>
-      <%= @race.next_link %>
-      <%= @race.this_week_link %>
-    </ul>
+  <div class="tab-pane fade" id="kom">
+    <div id="climb" style="float:left;min-width: 400px; height: <%= @race.athlete_count * 100 %>px; width: 800px; margin: 0 auto"></div>
+    <%= render :partial => "leaderboard", :locals => { units: @race.climb_units, leaderboard: @race.leaderboard_by_climb } %>
   </div>
-
-  <p>Your latests efforts not showing? <%= @race.update_link %></p>
-
 </div>
+
+<div class="pagination">
+  <ul>
+    <%= @race.previous_link %>
+    <li><a><%= @race.interval_pretty %></a></li>
+    <%= @race.next_link %>
+    <%= @race.this_week_link %>
+  </ul>
+</div>
+
+<p>Your latests efforts not showing? <%= @race.update_link %></p>
+
 
 <script type="text/javascript">
       $(function () {
