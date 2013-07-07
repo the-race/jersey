@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.13'
 gem 'jquery-rails', '~> 2.2.1'
+gem 'thin', '~> 1.5.1'
 gem 'mongoid', '~> 3.1.2'
 gem 'mongoid_slug', '3.1.1'
 gem 'libv8', '~> 3.11.8'
@@ -26,7 +27,6 @@ group :assets do
 end
 
 group :development do
-  gem 'thin', '~> 1.5.1'
   gem 'guard-bundler', '~> 1.0.0'
   gem 'guard-rails', '~> 0.4.0'
   gem 'guard-rspec', '~> 2.5.2'
