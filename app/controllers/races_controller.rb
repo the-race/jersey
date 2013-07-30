@@ -29,7 +29,7 @@ class RacesController < ApplicationController
 
   private
   def gateway
-    Jersey::StravaAsyncGateway.new(ENV['STRAVA_EMAIL'], ENV['STRAVA_PASSWORD'])
+    StravaAsyncGateway.new(ENV['STRAVA_EMAIL'], ENV['STRAVA_PASSWORD'])
   end
 
   def interval
