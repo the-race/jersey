@@ -1,4 +1,6 @@
 Leaderboard = Struct.new(:name, :total, :behind) do
+  FLOAT_FORMAT = '%.2f'
+
   def total_to_s
    pretty_float(total)
   end
@@ -9,7 +11,7 @@ Leaderboard = Struct.new(:name, :total, :behind) do
 
   private
 
-  def pretty_float(st)
-    ('%.2f' % st).gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1,")
+  def pretty_float(float)
+    (FLOAT_FORMAT % float).gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1,")
   end
 end
