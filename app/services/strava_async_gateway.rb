@@ -109,11 +109,13 @@ class StravaAsyncGateway
   def parse(response)
     lines    = response.body.lines.to_a
     totals   = Nokogiri::HTML(lines[2]).search('li strong')
+    distance = totals[0].children[0] ||= {text: '0'}
+    climb    = totals[2].children[0] ||= {text: '0.0'}
     {
       number:   lines[0][/athletes\/(.+?)#/, 1],
       name:     lines[3][/img alt=\\'(.+?)\\'/, 1],
-      distance: totals[0].children[0].text.to_f,
-      climb:    totals[2].children[0].text.sub(',', '').to_i
+      distance: distance.text.to_f,
+      climb:    climb.text.sub(',', '').to_i
     }
   end
 end
