@@ -115,7 +115,7 @@ class StravaAsyncGateway
     }
 
     totals = Nokogiri::HTML(lines[2]).search('li strong')
-    if totals && totals[0].children[0] && totals[2].children[0] then
+    if totals && totals[0] && totals[2] then
       result[:distance] = totals[0].children[0].text.to_f
       result[:climb]    = totals[2].children[0].text.sub(',', '').to_i
     else
