@@ -108,6 +108,7 @@ class StravaAsyncGateway
 
   def parse(response)
     lines    = response.body.lines.to_a
+    Rails.logger.error response.body
     result   = {
       number: lines[0][/athletes\/(.+?)#/, 1],
       name:   lines[3][/img alt=\\'(.+?)\\'/, 1]
