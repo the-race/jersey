@@ -108,14 +108,14 @@ class StravaAsyncGateway
 
   def parse(response)
     lines    = response.body.lines.to_a
-    Rails.logger.error response.body
+    #Rails.logger.error response.body
     result   = {
       number: lines[0][/athletes\/(.+?)#/, 1],
       name:   lines[3][/img alt=\\'(.+?)\\'/, 1]
     }
 
     totals = Nokogiri::HTML(lines[2]).search('li strong')
-    if totals then
+    if totals && totals[0].children[0] && totals[2].children[0] then
       result[:distance] = totals[0].children[0].text.to_f
       result[:climb]    = totals[2].children[0].text.sub(',', '').to_i
     else
