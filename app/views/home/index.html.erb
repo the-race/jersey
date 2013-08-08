@@ -1,7 +1,11 @@
 <h3>Races</h3>
 
+<% if @races %>
 <ul>
 <% @races.each do |race| %>
   <li><%=link_to race.name, race %></li>
 <% end %>
 </ul>
+<% else %>
+  <p>No races found</p>
+<% end %>
