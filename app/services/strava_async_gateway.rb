@@ -5,20 +5,20 @@ class StravaAsyncGateway
   COOKIE_FILE    = 'strava-cookie.txt'
 
   HEADERS = {
-    'Accept'        => 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript',
-    'User-Agent'    => 'mozilla/5.0 (macintosh; intel mac os x 10_6_8) applewebkit/535.19 (khtml, like gecko) chrome/18.0.1025.168 safari/535.19',
+    'Accept'     => 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript',
+    'User-Agent' => 'mozilla/5.0 (macintosh; intel mac os x 10_6_8) applewebkit/535.19 (khtml, like gecko) chrome/18.0.1025.168 safari/535.19',
   }
 
   DEFAULT_PARAMS = {
-    headers:        HEADERS,
-    cookiefile:     COOKIE_FILE,
-    cookiejar:      COOKIE_FILE,
-    followlocation: true,
+    :headers        => HEADERS,
+    :cookiefile     => COOKIE_FILE,
+    :cookiejar      => COOKIE_FILE,
+    :followlocation => true,
   }
 
-  def initialize(email, password)
-    @email     = email
-    @password  = password
+  def initialize(email=ENV['STRAVA_EMAIL'], password=ENV['STRAVA_PASSWORD'])
+    @email    = email
+    @password = password
   end
 
   def name(athlete_number)
@@ -38,6 +38,7 @@ class StravaAsyncGateway
   end
 
   def activities(athlete_numbers, interval)
+    login
     data  = []
     hydra = Typhoeus::Hydra.hydra
 
