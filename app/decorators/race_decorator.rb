@@ -50,7 +50,7 @@ class RaceDecorator < Draper::Decorator
   end
 
   def update_link
-    h.link_to('<i class="icon-refresh"></i> Update now'.html_safe, h.race_path(model, interval.to_params), :method=> :put)
+    h.link_to('<i class="icon-refresh"></i> Update now'.html_safe, h.total_path(model, interval.to_params), :method=> :put)
   end
 
 ############ duplication much?

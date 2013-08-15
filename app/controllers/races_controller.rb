@@ -21,30 +21,14 @@ class RacesController < ApplicationController
     end
   end
 
-  def update
-    @race = current_user.races.find(params[:id])
-    @race.force_update_totals(gateway, interval)
-    redirect_to race_path(@race, interval.to_params)
-  end
-
   private
+
   def gateway
-    StravaAsyncGateway.new(ENV['STRAVA_EMAIL'], ENV['STRAVA_PASSWORD'])
+    StravaAsyncGateway.new
   end
 
   def interval
-    Interval.new(year, week)
+    Interval.create_from(params)
   end
 
-  def year
-    params[:year] ? params[:year].to_i : Time.new.year
-  end
-
-  def week
-    params[:week] ? params[:week].to_i : current_week
-  end
-
-  def current_week
-    Time.new.strftime('%W').to_i + 1
-  end
 end

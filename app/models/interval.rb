@@ -1,6 +1,6 @@
 Interval = Struct.new(:year, :week) do
   def current
-    Interval.new(current_year, current_week)
+    Interval.current
   end
 
   def current_week?
@@ -35,12 +35,22 @@ Interval = Struct.new(:year, :week) do
     "#{year}#{"%02d" % week}"
   end
 
-  private
-  def current_year
+  def self.create_from(params)
+    year = params[:year] ? params[:year].to_i : Interval.current_year
+    week = params[:week] ? params[:week].to_i : Interval.current_week
+    Interval.new(year, week)
+  end
+
+  def self.current
+    Interval.new(self.current_year, self.current_week)
+  end
+
+  def self.current_year
     Time.new.year
   end
 
-  def current_week
+  def self.current_week
     Time.new.strftime('%W').to_i + 1
   end
+
 end
