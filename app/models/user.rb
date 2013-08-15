@@ -43,9 +43,21 @@ class User
                   :password_confirmation, :remember_me,
                   :created_at, :updated_at
 
+  def prefers_metric?
+    units == Units::METRIC
+  end
+
   def new_race
     race = races.new
     3.times { race.athletes.build }
     race
+  end
+
+  def create_race(race)
+    races.new(race)
+  end
+
+  def find_race(id)
+    races.find(id)
   end
 end

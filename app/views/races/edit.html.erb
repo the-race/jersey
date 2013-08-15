@@ -1,0 +1,25 @@
+<h3>Edit Race</h3>
+
+<%= simple_form_for(@race, :url => race_path(@race), :html => {:class => 'form-vertical' }) do |f| %>
+  <%= f.error_notification %>
+  <%= display_base_errors @race %>
+
+  <%= f.hidden_field :id, :value => @race.id %>
+  <%= f.input :name, :autofocus => true, input_html: { class: "input-xxlarge" } %>
+
+  <h4>Athletes</h4>
+
+  <div class='athletes'>
+    <%= f.simple_fields_for :athletes do |athlete| %>
+      <%= render 'athlete_fields', :f => athlete %>
+    <% end %>
+
+    <div class='form-actions'>
+      <button type="submit" class="btn btn-primary">
+        <i class="icon-play icon-white"></i> Update
+      </button>
+      <%= link_to_add_association '<i class="icon-plus"></i> Add Athlete'.html_safe, f, :athletes, :class => 'btn' %>
+    </div>
+  </div>
+
+<% end %>
