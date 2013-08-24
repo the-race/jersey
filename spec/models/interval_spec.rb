@@ -1,6 +1,9 @@
-require 'spec_helper'
+require 'spec_helper_lite'
+require 'interval'
 
 describe Interval do
+  subject(:interval) { Interval.new(2013, 5) }
+
   context "moving past the last week in the year" do
     subject(:interval) { Interval.new(2013, 52) }
     let(:new_interval) { interval.next }
@@ -30,6 +33,18 @@ describe Interval do
   describe "#to_s" do
     subject(:interval) { Interval.new(2013, 5) }
 
+    it "outputs leading zeros" do
+      expect(interval.to_s).to eq("201305")
+    end
+  end
+
+  describe "#to_params" do
+    it "creates a hash of dates" do
+      expect(interval.to_params).to eq({ year: 2013, week: 5 })
+    end
+  end
+
+  describe "#to_s" do
     it "outputs leading zeros" do
       expect(interval.to_s).to eq("201305")
     end
