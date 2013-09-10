@@ -1,11 +1,12 @@
 class RaceDecorator < Draper::Decorator
   decorates :race
 
-  attr_reader :interval
+  attr_reader :interval, :user
 
-  def initialize(object, interval)
+  def initialize(object, interval, user)
     super(object)
     @interval = interval
+    @user     = user
   end
 
   delegate :name
@@ -64,41 +65,41 @@ class RaceDecorator < Draper::Decorator
 
   def distance
     totals_by_distance.map do |t|
-      "{y: #{'%.2f' % (t.distance || 0)}, url: 'http://app.strava.com/athletes/#{t.athlete.number}'}"
+      "{y: #{'%.2f' % (t.distance(user) || 0)}, url: 'http://app.strava.com/athletes/#{t.athlete.number}'}"
     end.to_s.gsub('"', '')
   end
 
   def climb
     totals_by_climb.map do |t|
-      "{y: #{'%.2f' % (t.climb || 0)}, url: 'http://app.strava.com/athletes/#{t.athlete.number}'}"
+      "{y: #{'%.2f' % (t.climb(user) || 0)}, url: 'http://app.strava.com/athletes/#{t.athlete.number}'}"
     end.to_s.gsub('"', '')
   end
 ############# encapsulate what varies?
 
   def distance_units
-    model.user.units == Units::METRIC ? 'Km' : 'Miles'
+    user.prefers_metric? ? 'Km' : 'Miles'
   end
 
   def climb_units
-    model.user.units == Units::METRIC ? 'Meters' : 'Feet'
+    user.prefers_metric? ? 'Meters' : 'Feet'
   end
 
   def totals_by_distance
     model.athletes.map {|a| a.totals_for(interval)}
-                       .sort {|x, y| y.distance <=> x.distance}
+                       .sort {|x, y| y.distance(user) <=> x.distance(user)}
   end
 
   def totals_by_climb
-    totals_by_distance.sort {|x, y| y.climb <=> x.climb}
+    totals_by_distance.sort {|x, y| y.climb(user) <=> x.climb(user)}
   end
 
   def leaderboard_by_distance
-    leaderboard = model.athletes.map {|a| create(a, a.totals_for(interval).distance)}
+    leaderboard = model.athletes.map {|a| create(a, a.totals_for(interval).distance(user))}
     populate_and_sort(leaderboard)
   end
 
   def leaderboard_by_climb
-    board = model.athletes.map {|a| create(a, a.totals_for(interval).climb)}
+    board = model.athletes.map {|a| create(a, a.totals_for(interval).climb(user))}
     populate_and_sort(board)
   end
 

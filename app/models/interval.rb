@@ -28,11 +28,11 @@ Interval = Struct.new(:year, :week) do
   end
 
   def to_params
-    {year: year, week: week}
+    { year: year, week: week }
   end
 
   def to_s
-    "#{year}#{"%02d" % week}"
+    sprintf("#{year}%02d", week)
   end
 
   def self.create_from(params)

@@ -16,16 +16,16 @@ class Total
     self.climb_meters = data.fetch(:climb)
   end
 
-  def distance
-    if athlete.race.user.units ==  Units::METRIC
+  def distance(user)
+    if user.prefers_metric?
       distance_km
     else
       distance_km * 0.621371192237334
     end
   end
 
-  def climb
-    if athlete.race.user.units ==  Units::METRIC
+  def climb(user)
+    if user.prefers_metric?
       climb_meters
     else
       climb_meters * 3.2808399
