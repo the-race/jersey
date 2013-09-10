@@ -26,7 +26,7 @@ class StravaAsyncGateway
             session.login
             response = request.run
           end
-          data << parse(response)
+          data << parse(athlete_number, response)
         end
         hydra.queue(request)
       end
@@ -46,22 +46,24 @@ class StravaAsyncGateway
       yield request
     else
       response = request.run
-      parse(response)
+      parse(athlete_number, response)
     end
   end
 
   private
-  attr_reader :session
+  attr_reader :session # !> private attribute?
 
   def login_redirect?(response)
     response.response_code == 302
   end
 
-  def parse(response)
+  def parse(athlete_number, response)
+    return empty_result(athlete_number) if no_data?(response)
+
     lines    = response.body.lines.to_a
     result   = {
       number: lines[0][/athletes\/(.+?)#/, 1],
-      name:   lines[3][/img alt=\\'(.+?)\\'/, 1]
+#      name:   lines[3][/img alt=\\'(.+?)\\'/, 1]
     }
     totals = Nokogiri::HTML(lines[2]).search('li strong')
 
@@ -75,24 +77,15 @@ class StravaAsyncGateway
     result
   end
 
-  #def headers(cookies='')
-    #{
-    #'Accept'     => 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript',
-    #'User-Agent' => 'mozilla/5.0 (macintosh; intel mac os x 10_6_8) applewebkit/535.19 (khtml, like gecko) chrome/18.0.1025.168 safari/535.19',
-    #'Cookie'     => cookies,
-    #}
-  #end
+  def no_data?(response)
+    response.body.include?('Oops! There seems to be a problem.')
+  end
 
-  #def default_params(cookies='')
-    #{
-      #:headers        => headers.merge({'Cookie' => cookies}),
-      #:followlocation => true,
-    #}
-  #end
-
-  #def strava_cookie(response)
-    #set_cookie = response.headers_hash["Set-Cookie"]
-    #cookie_jar = CookieJar.new.parse(set_cookie)
-    #"_strava3_session=#{cookie_jar['_strava3_session']}"
-  #end
+  def empty_result(athlete_number)
+    {
+      number: athlete_number,
+      distance: 0.0,
+      climb: 0
+    }
+  end
 end
