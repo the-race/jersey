@@ -1,10 +1,17 @@
+GuestUser = Struct.new(:name) do
+  def prefers_metric?
+    true
+  end
+end
+
 class RacesController < ApplicationController
   before_filter :authenticate_user!, except: [:show]
 
   def show
     @race = Race.find(params[:id])
     @race.check_and_update_totals(gateway, interval)
-    @race = RaceDecorator.new(@race, interval, current_user)
+    user  = current_user || GuestUser.new('Guest')
+    @race = RaceDecorator.new(@race, interval, user)
   end
 
   def new
