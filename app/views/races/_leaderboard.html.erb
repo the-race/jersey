@@ -12,10 +12,10 @@
     <tbody>
       <% leaderboard.each_with_index do |leader, index| %>
         <tr>
-          <td><div class="text-center"><%= index + 1 %></div></td>
-          <td><%= leader.name %></td>
-          <td><div class="text-right"><%= leader.total_to_s %></div></td>
-          <td><div class="text-right"><%= leader.behind_to_s %></div></td>
+          <td><div class="text-center"><%= @race.rank(index, leader.total) %></div></td>
+          <td style="vertical-align: middle;"><%= leader.name %></td>
+          <td style="vertical-align: middle;"><div class="text-right"><%= leader.total_to_s %></div></td>
+          <td style="vertical-align: middle;"><div class="text-right"><%= leader.behind_to_s %></div></td>
         </tr>
       <% end %>
     </tbody>

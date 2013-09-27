@@ -103,6 +103,15 @@ class RaceDecorator < Draper::Decorator
     populate_and_sort(board)
   end
 
+  def rank(index, total)
+    number = index + 1
+    if (1..3).include?(number) && total > 0
+      h.image_tag("rank-#{number}.png")
+    else
+      number
+    end
+  end
+
   private
   def create(athlete, total)
     Leaderboard.new(athlete.name, total, '-')
