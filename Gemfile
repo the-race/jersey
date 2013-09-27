@@ -41,8 +41,9 @@ group :development do
   gem 'binding_of_caller', '~> 0.7.1', :platforms => [:mri_19, :rbx]
   gem 'pry-rails'
   gem 'rspec-rails', '~> 2.12.2'
-  gem 'factory_girl_rails', '~> 4.2.0'
+  gem 'fabrication', '2.8.1'
   gem 'meta_request'
+  gem 'dotenv-rails', '~> 0.9.0'
 end
 
 group :test do
@@ -51,7 +52,8 @@ group :test do
   gem 'mongoid-rspec', '~> 1.7.0'
   gem 'email_spec', '~> 1.4.0'
   gem 'rspec-rails', '~> 2.12.2'
-  gem 'factory_girl_rails', '~> 4.2.0'
+  gem 'fabrication', '2.8.1'
   gem 'webmock', '~> 1.11.0'
   gem 'vcr', '~> 2.5.0'
+  gem 'dotenv-rails', '~> 0.9.0'
 end
