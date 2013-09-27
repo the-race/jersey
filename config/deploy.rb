@@ -1,5 +1,6 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
+require "dotenv/capistrano"
 
 server "jersey.cloudapp.net", :web, :app, :db, primary: true
 

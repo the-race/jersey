@@ -8,7 +8,7 @@ feature 'User authentication' do
   end
 
   scenario 'successful login' do
-    user = FactoryGirl.create(:user)
+    user = Fabricate(:user)
     visit '/users/sign_in'
 
     fill_in 'user_email', :with => user.email
@@ -20,7 +20,7 @@ feature 'User authentication' do
   end
 
   scenario 'failed login' do
-    user = FactoryGirl.create(:user)
+    user = Fabricate(:user)
     visit '/users/sign_in'
 
     fill_in 'user_email', :with => user.email

@@ -26,7 +26,6 @@ module Jersey
         #VCR.use_cassette 'lib/activity201321' do
           data = subject.activity('1108047', '201321')
           data[:number].should == '1108047'
-          data[:name].should == 'Justin Ramel'
           data[:distance].should == 215.3
           data[:climb].should == 1543
         #end
@@ -44,12 +43,10 @@ module Jersey
           end
 
           justin[:number].should == '1108047'
-          justin[:name].should == 'Justin Ramel'
           justin[:distance].should == 215.3
           justin[:climb].should == 1543
 
           anthony[:number].should == '605007'
-          anthony[:name].should == 'Anthony Griffiths'
           anthony[:distance].should == 211.5
           anthony[:climb].should == 2192
         #end

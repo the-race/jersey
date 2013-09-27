@@ -38,7 +38,8 @@ class Race
       total = athlete.totals.find_or_initialize_by(interval.to_params)
       total.populate_with(data)
     end
-    save end
+    save
+  end
 
   def athletes_to_update(interval)
     return athletes if interval.current_week?
