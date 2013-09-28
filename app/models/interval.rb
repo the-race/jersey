@@ -35,6 +35,10 @@ Interval = Struct.new(:year, :week) do
     sprintf("#{year}%02d", week)
   end
 
+  def to_pretty_s
+    "week #{week}, #{year}"
+  end
+
   def self.create_from(params)
     year = params[:year] ? params[:year].to_i : Interval.current_year
     week = params[:week] ? params[:week].to_i : Interval.current_week

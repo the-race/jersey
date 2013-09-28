@@ -1,12 +1,19 @@
 require 'spec_helper'
 
-feature 'Races' do
-  scenario 'guest user accessing race page' do
+feature 'Show a race' do
+  before do
     Fabricate(:race)
-
     visit '/races/tour-de-france'
+  end
 
+  scenario 'accessing race page' do
     expect(page).to have_content 'Tour de France'
-    expect(page).not_to have_content('something went wrong')
+    expect(page).to have_content 'Leaderboard (Miles)'
+  end
+
+  scenario 'updating totals' do
+    click_link 'Update now'
+
+    expect(page).to have_content 'Totals updated'
   end
 end

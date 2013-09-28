@@ -1,9 +1,8 @@
 class TotalsController < ApplicationController
-  before_filter :authenticate_user!
-
   def update
     @race = Race.find(params[:id])
     @race.force_update_totals(gateway, interval)
+    flash[:notice] = "Totals updated for #{interval.to_pretty_s}"
     redirect_to race_path(@race, interval.to_params)
   end
 
